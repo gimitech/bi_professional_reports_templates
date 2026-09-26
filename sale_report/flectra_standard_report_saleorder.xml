@@ -55,9 +55,9 @@
                         <div class="col-6" style="padding-right: 5px;">
                             <table class="table table-sm table-bordered" style="table-layout: fixed; width: 100%;">
                                 <thead style="background-color: #f8f9fa;">
-                                    <tr><th colspan="2" style="font-size: 12px; padding: 4px 8px;">Information</th></tr>
+                                    <tr><th colspan="2" style="font-size: 12px; padding: 4px 8px; color: #333333;">Information</th></tr>
                                 </thead>
-                                <tbody>
+                                <tbody style="background-color: #ffffff !important; color: #000000 !important;">
                                     <tr>
                                         <td style="width: 40%; padding: 4px 8px;"><strong>Quotation No.</strong></td>
                                         <td style="width: 60%; padding: 4px 8px;"><span t-field="doc.name"/></td>
@@ -76,9 +76,9 @@
                         <div class="col-6" style="padding-left: 5px;">
                             <table class="table table-sm table-bordered" style="table-layout: fixed; width: 100%;">
                                 <thead style="background-color: #f8f9fa;">
-                                    <tr><th colspan="2" style="font-size: 12px; padding: 4px 8px;">Status</th></tr>
+                                    <tr><th colspan="2" style="font-size: 12px; padding: 4px 8px; color: #333333;">Status</th></tr>
                                 </thead>
-                                <tbody>
+                                <tbody style="background-color: #ffffff !important; color: #000000 !important;">
                                     <tr>
                                         <td style="width: 40%; padding: 4px 8px;"><strong>Payment Term:</strong></td>
                                         <td style="width: 60%; padding: 4px 8px;"><span t-field="doc.payment_term_id"/></td>
@@ -97,11 +97,11 @@
                          <div class="col-6" style="padding-right: 5px;">
                             <table class="table table-sm table-bordered" style="table-layout: fixed; width: 100%;">
                                 <thead style="background-color: #f8f9fa;">
-                                    <tr><th style="font-size: 12px; padding: 4px 8px;">Shipping</th></tr>
+                                    <tr><th style="font-size: 12px; padding: 4px 8px; color: #333333;">Shipping</th></tr>
                                 </thead>
-                                <tbody>
+                                <tbody style="background-color: #ffffff !important; color: #000000 !important;">
                                     <tr>
-                                        <td style="padding: 8px; min-height: 80px;">
+                                        <td style="padding: 8px; min-height: 80px; background-color: #ffffff !important; color: #000000 !important;">
                                             <div t-field="doc.partner_shipping_id" t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": True}'/>
                                         </td>
                                     </tr>
@@ -112,9 +112,9 @@
                         <div class="col-6" style="padding-left: 5px;">
                             <table class="table table-sm table-bordered" style="table-layout: fixed; width: 100%;">
                                 <thead style="background-color: #f8f9fa;">
-                                    <tr><th colspan="2" style="font-size: 12px; padding: 4px 8px;">Invoicing</th></tr>
+                                    <tr><th colspan="2" style="font-size: 12px; padding: 4px 8px; color: #333333;">Invoicing</th></tr>
                                 </thead>
-                                <tbody>
+                                <tbody style="background-color: #ffffff !important; color: #000000 !important;">
                                     <tr>
                                         <td style="width: 45%; padding: 4px 6px;">Confirmation Mode:</td>
                                         <td style="width: 55%; padding: 4px 6px; text-align: right;"><span>Manual</span></td>
@@ -143,7 +143,7 @@
                     <p style="font-weight: bold; margin-bottom: 6px; font-size: 12px; color: #555;">Details</p>
                     <table class="table table-sm table-bordered" style="table-layout: fixed; width: 100%;">
                         <thead>
-                            <tr t-attf-style="background-color:#{company.color_sale or '#f2f2f2'}; color:#{company.text_color_sale or '#000000'}; font-size: 11px;">
+                            <tr style="background-color: #f8f9fa; color: #333333; font-size: 11px;">
                                 <th style="width: 6%; text-align: center; vertical-align: middle;">SN.</th>
                                 <th style="width: 19%; vertical-align: middle;">P/N</th>
                                 <th style="width: 35%; vertical-align: middle;">DESCRIPTION</th>
@@ -206,7 +206,7 @@
                                             <span t-field="doc.amount_tax" t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'/>
                                         </td>
                                     </tr>
-                                    <tr t-attf-style="background-color:#{company.color_sale or '#f8f9fa'}; color:#{company.text_color_sale or '#000000'}; font-weight: bold;">
+                                    <tr style="background-color: #f8f9fa; color: #000000; font-weight: bold;">
                                         <td style="padding: 6px 8px;"><strong>Total</strong></td>
                                         <td class="text-right" style="padding: 6px 8px;">
                                             <span t-field="doc.amount_total" t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'/>
