@@ -1,10 +1,10 @@
-# Translation of Odoo Server.
+# Translation of Flectra Server.
 # This file contains the translation of the following modules:
 # 	* bi_professional_reports_templates
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 15.5alpha1\n"
+"Project-Id-Version: Flectra Server 15.5alpha1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-09-07 08:05+0000\n"
 "PO-Revision-Date: 2022-09-07 08:05+0000\n"
@@ -145,7 +145,7 @@ msgstr ""
 "                        <span>Código SWIFT :</span>"
 
 #. module: bi_professional_reports_templates
-#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_invoice_document
+#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.flectra_std_report_invoice_document
 msgid ""
 "<br/>\n"
 "                    <span>Bank Name : </span>"
@@ -154,7 +154,7 @@ msgstr ""
 "                    <span>Nombre del banco : </span>"
 
 #. module: bi_professional_reports_templates
-#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_invoice_document
+#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.flectra_std_report_invoice_document
 msgid ""
 "<br/>\n"
 "                    <span>Branch Name/Address : </span>"
@@ -163,7 +163,7 @@ msgstr ""
 "                    <span>Nombre / dirección de la sucursal: </span>"
 
 #. module: bi_professional_reports_templates
-#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_invoice_document
+#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.flectra_std_report_invoice_document
 msgid ""
 "<br/>\n"
 "                    <span>IFSC Code : </span>"
@@ -172,7 +172,7 @@ msgstr ""
 "                    <span>Código IFSC:</span>"
 
 #. module: bi_professional_reports_templates
-#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_invoice_document
+#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.flectra_std_report_invoice_document
 msgid ""
 "<br/>\n"
 "                    <span>Swift Code : </span>"
@@ -182,61 +182,61 @@ msgstr ""
 
 #. module: bi_professional_reports_templates
 #: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_invoice_document
-#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_invoice_document
+#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.flectra_std_report_invoice_document
 msgid "<font color=\"#fff\">Cancelled Invoice</font>"
 msgstr "<font color=\"#fff\">Factura cancelada</font>"
 
 #. module: bi_professional_reports_templates
 #: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_deliveryslip_document
-#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_deliveryslip_document
+#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.flectra_std_report_deliveryslip_document
 msgid "<font color=\"#fff\">Delivery Note #</font>"
 msgstr "<font color=\"#fff\">Nota de entrega #</font>"
 
 #. module: bi_professional_reports_templates
 #: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_invoice_document
-#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_invoice_document
+#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.flectra_std_report_invoice_document
 msgid "<font color=\"#fff\">Draft Invoice</font>"
 msgstr "<font color=\"#fff\">Proyecto de factura</font>"
 
 #. module: bi_professional_reports_templates
 #: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_invoice_document
-#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_invoice_document
+#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.flectra_std_report_invoice_document
 msgid "<font color=\"#fff\">Invoice</font>"
 msgstr "<font color=\"#fff\">Factura</font>"
 
 #. module: bi_professional_reports_templates
 #: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_deliveryslip_document
-#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_deliveryslip_document
+#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.flectra_std_report_deliveryslip_document
 msgid "<font color=\"#fff\">Origin:</font>"
 msgstr "<font color=\"#fff\">Origen:</font>"
 
 #. module: bi_professional_reports_templates
 #: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_invoice_document
-#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_invoice_document
+#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.flectra_std_report_invoice_document
 msgid "<font color=\"#fff\">PRO-FORMA</font>"
 msgstr ""
 
 #. module: bi_professional_reports_templates
 #: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_invoice_document
-#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_invoice_document
+#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.flectra_std_report_invoice_document
 msgid "<font color=\"#fff\">Refund</font>"
 msgstr "<font color=\"#fff\">Reembolso</font>"
 
 #. module: bi_professional_reports_templates
 #: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_deliveryslip_document
-#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_deliveryslip_document
+#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.flectra_std_report_deliveryslip_document
 msgid "<font color=\"#fff\">Scheduled Date:</font>"
 msgstr "<font color=\"#fff\">Cita agendada:</font>"
 
 #. module: bi_professional_reports_templates
 #: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_invoice_document
-#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_invoice_document
+#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.flectra_std_report_invoice_document
 msgid "<font color=\"#fff\">Vendor Bill</font>"
 msgstr "<font color=\"#fff\">Factura del proveedor</font>"
 
 #. module: bi_professional_reports_templates
 #: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_invoice_document
-#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_invoice_document
+#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.flectra_std_report_invoice_document
 msgid "<font color=\"#fff\">Vendor Refund</font>"
 msgstr "<font color=\"#fff\">Reembolso del proveedor</font>"
 
@@ -255,7 +255,7 @@ msgid "<span style=\"background-color:#3498DB;\">Delivery Address</span>"
 msgstr "<span style=\"background-color:#3498DB;\">Dirección de entrega</span>"
 
 #. module: bi_professional_reports_templates
-#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_deliveryslip_document
+#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.flectra_std_report_deliveryslip_document
 msgid ""
 "<span style=\"background-color:#893b74; color:#FFF; font:20px lucida-console,sans-serif !important;\">\n"
 "                                Customer Address\n"
@@ -268,7 +268,7 @@ msgstr ""
 "                            <br/>"
 
 #. module: bi_professional_reports_templates
-#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_deliveryslip_document
+#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.flectra_std_report_deliveryslip_document
 msgid ""
 "<span style=\"background-color:#893b74; color:#FFF; font:20px lucida-console,sans-serif !important;\">\n"
 "                                Delivery Address\n"
@@ -286,13 +286,13 @@ msgstr ""
 
 #. module: bi_professional_reports_templates
 #: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_invoice_document
-#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_invoice_document
+#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.flectra_std_report_invoice_document
 msgid "<span>,</span>"
 msgstr ""
 
 #. module: bi_professional_reports_templates
 #: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_saleorder_document
-#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_saleorder_document
+#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.flectra_std_report_saleorder_document
 msgid "<span><font color=\"#fff\">Order# </font></span>"
 msgstr "<span><font color=\"#fff\">Pedido# </font></span>"
 
@@ -378,8 +378,8 @@ msgstr "<strong style=\"color:gray !important;\">Dirección de Envío:</strong>"
 #. module: bi_professional_reports_templates
 #: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_purchaseorder_document
 #: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_purchasequotation_document
-#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_standard_report_purchaseorder_document
-#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_purchasequotation_document
+#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.flectra_standard_report_purchaseorder_document
+#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.flectra_std_report_purchasequotation_document
 msgid "<strong style=\"color:gray !important;\">Vendor address:</strong><br/>"
 msgstr ""
 "<strong style=\"color:gray !important;\">Dirección del "
@@ -388,7 +388,7 @@ msgstr ""
 #. module: bi_professional_reports_templates
 #: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_saleorder_document
 #: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_saleorder_document
-#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_saleorder_document
+#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.flectra_std_report_saleorder_document
 msgid "<strong> <span>Payment Term :</span></strong>"
 msgstr "<strong> <span> Plazo de pago: </span> </strong>"
 
@@ -403,7 +403,7 @@ msgid "<strong><font color=\"#FFF\"><span>Note:</span> </font></strong>"
 msgstr "<strong><font color=\"#FFF\"><span>Nota:</span> </font></strong>"
 
 #. module: bi_professional_reports_templates
-#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_invoice_document
+#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.flectra_std_report_invoice_document
 msgid "<strong><span>Comments:</span> </strong>"
 msgstr "<strong> <span> Comentarios: </span> </strong>"
 
@@ -415,19 +415,19 @@ msgstr "<strong> <span> Comentarios: </span> </strong>"
 #: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_purchasequotation_document
 #: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_saleorder_document
 #: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_saleorder_document
-#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_standard_report_purchaseorder_document
-#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_purchasequotation_document
-#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_saleorder_document
+#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.flectra_standard_report_purchaseorder_document
+#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.flectra_std_report_purchasequotation_document
+#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.flectra_std_report_saleorder_document
 msgid "<strong><span>Note:</span> </strong>"
 msgstr "<strong> <span> Nota: </span> </strong>"
 
 #. module: bi_professional_reports_templates
-#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_invoice_document
+#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.flectra_std_report_invoice_document
 msgid "<strong>Amount Due</strong>"
 msgstr "<strong> Importe adeudado </strong>"
 
 #. module: bi_professional_reports_templates
-#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_invoice_document
+#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.flectra_std_report_invoice_document
 msgid ""
 "<strong>Bank Account Details</strong><br/>\n"
 "                    <span>Account Id : </span>"
@@ -484,18 +484,18 @@ msgstr "<strong> Fecha de vencimiento: </strong>"
 #: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_invoice_document
 #: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_invoice_document
 #: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_invoice_document
-#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_invoice_document
+#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.flectra_std_report_invoice_document
 msgid "<strong>Fiscal Position Remark:</strong>"
 msgstr "<strong> Comentario sobre la posición fiscal: </strong>"
 
 #. module: bi_professional_reports_templates
 #: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_invoice_document
-#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_invoice_document
+#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.flectra_std_report_invoice_document
 msgid "<strong>Invoice Date:</strong>"
 msgstr "<strong> Fecha de la factura: </strong>"
 
 #. module: bi_professional_reports_templates
-#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_saleorder_document
+#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.flectra_std_report_saleorder_document
 msgid "<strong>Invoicing And Shipping Address</strong>"
 msgstr "<strong> Dirección de facturación y envío </strong>"
 
@@ -522,7 +522,7 @@ msgid "<strong>Payment Term:</strong>"
 msgstr "<strong> Plazo de pago: </strong>"
 
 #. module: bi_professional_reports_templates
-#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_invoice_document
+#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.flectra_std_report_invoice_document
 msgid ""
 "<strong>Paypal Account Details</strong><br/>\n"
 "                    <span>Paypal Id : </span>"
@@ -561,7 +561,7 @@ msgstr "<strong> Dirección de envío: </strong> <br/>"
 #: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_invoice_document
 #: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_invoice_document
 #: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_invoice_document
-#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_invoice_document
+#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.flectra_std_report_invoice_document
 msgid "<strong>Subtotal</strong>"
 msgstr "<strong> Subtotal </strong>"
 
@@ -580,8 +580,8 @@ msgstr "<strong> Impuestos </strong>"
 #: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_saleorder_document
 #: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_purchaseorder_document
 #: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_saleorder_document
-#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_standard_report_purchaseorder_document
-#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_saleorder_document
+#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.flectra_standard_report_purchaseorder_document
+#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.flectra_std_report_saleorder_document
 msgid "<strong>Total Without Taxes</strong>"
 msgstr "<strong> Total sin impuestos </strong>"
 
@@ -596,9 +596,9 @@ msgstr "<strong> Total sin impuestos </strong>"
 #: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_invoice_document
 #: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_purchaseorder_document
 #: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_saleorder_document
-#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_standard_report_purchaseorder_document
-#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_invoice_document
-#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_saleorder_document
+#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.flectra_standard_report_purchaseorder_document
+#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.flectra_std_report_invoice_document
+#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.flectra_std_report_saleorder_document
 msgid "<strong>Total</strong>"
 msgstr "<strong> Total </strong>"
 
@@ -626,7 +626,7 @@ msgstr "Dirección"
 
 #. module: bi_professional_reports_templates
 #: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_deliveryslip_document
-#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_deliveryslip_document
+#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.flectra_std_report_deliveryslip_document
 msgid ""
 "All items couldn't be shipped, the remaining ones will be shipped as soon as they become\n"
 "                            available."
@@ -707,7 +707,7 @@ msgstr "Dirección del cliente"
 
 #. module: bi_professional_reports_templates
 #: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_purchaseorder_document
-#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_standard_report_purchaseorder_document
+#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.flectra_standard_report_purchaseorder_document
 msgid "Date Req."
 msgstr "Fecha Req."
 
@@ -720,7 +720,7 @@ msgstr "Entrega #"
 #. module: bi_professional_reports_templates
 #: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_deliveryslip_document
 #: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_deliveryslip_document
-#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_deliveryslip_document
+#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.flectra_std_report_deliveryslip_document
 msgid "Delivered Quantity"
 msgstr "Cantidad entregada"
 
@@ -740,10 +740,10 @@ msgstr "Dirección de entrega"
 #: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_invoice_document
 #: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_purchasequotation_document
 #: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_saleorder_document
-#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_standard_report_purchaseorder_document
-#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_invoice_document
-#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_purchasequotation_document
-#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_saleorder_document
+#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.flectra_standard_report_purchaseorder_document
+#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.flectra_std_report_invoice_document
+#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.flectra_std_report_purchasequotation_document
+#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.flectra_std_report_saleorder_document
 msgid "Description"
 msgstr "Descripción"
 
@@ -754,8 +754,8 @@ msgstr "Descripción"
 #: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_saleorder_document
 #: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_invoice_document
 #: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_saleorder_document
-#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_invoice_document
-#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_saleorder_document
+#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.flectra_std_report_invoice_document
+#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.flectra_std_report_saleorder_document
 msgid "Disc.(%)"
 msgstr "Desct.(%)"
 
@@ -774,7 +774,7 @@ msgstr "Fecha de vencimiento"
 #. module: bi_professional_reports_templates
 #: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_purchasequotation_document
 #: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_purchasequotation_document
-#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_purchasequotation_document
+#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.flectra_std_report_purchasequotation_document
 msgid "Expected Date"
 msgstr "Fecha esperada"
 
@@ -823,7 +823,7 @@ msgstr "Asiento contable"
 #: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_deliveryslip_document
 #: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_deliveryslip_document
 #: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_deliveryslip_document
-#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_deliveryslip_document
+#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.flectra_std_report_deliveryslip_document
 msgid "Lot/Serial Number"
 msgstr "Número de lote / serie"
 
@@ -837,17 +837,17 @@ msgstr "Moderna"
 
 #. module: bi_professional_reports_templates
 #: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_purchaseorder_document
-#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_standard_report_purchaseorder_document
+#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.flectra_standard_report_purchaseorder_document
 msgid "Net Price"
 msgstr "Precio neto"
 
 #. module: bi_professional_reports_templates
-#: model:ir.model.fields.selection,name:bi_professional_reports_templates.selection__res_company__account_template__odoo_standard
-#: model:ir.model.fields.selection,name:bi_professional_reports_templates.selection__res_company__purchase_template__odoo_standard
-#: model:ir.model.fields.selection,name:bi_professional_reports_templates.selection__res_company__sale_template__odoo_standard
-#: model:ir.model.fields.selection,name:bi_professional_reports_templates.selection__res_company__stock_template__odoo_standard
-msgid "Odoo Standard"
-msgstr "Estándar de Odoo"
+#: model:ir.model.fields.selection,name:bi_professional_reports_templates.selection__res_company__account_template__flectra_standard
+#: model:ir.model.fields.selection,name:bi_professional_reports_templates.selection__res_company__purchase_template__flectra_standard
+#: model:ir.model.fields.selection,name:bi_professional_reports_templates.selection__res_company__sale_template__flectra_standard
+#: model:ir.model.fields.selection,name:bi_professional_reports_templates.selection__res_company__stock_template__flectra_standard
+msgid "Flectra Standard"
+msgstr "Estándar de Flectra"
 
 #. module: bi_professional_reports_templates
 #: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_purchaseorder_document
@@ -858,14 +858,14 @@ msgid "Order Date"
 msgstr "Fecha de orden"
 
 #. module: bi_professional_reports_templates
-#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_saleorder_document
+#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.flectra_std_report_saleorder_document
 msgid "Order Date:"
 msgstr "Fecha de orden:"
 
 #. module: bi_professional_reports_templates
 #: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_deliveryslip_document
 #: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_deliveryslip_document
-#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_deliveryslip_document
+#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.flectra_std_report_deliveryslip_document
 msgid ""
 "Ordered\n"
 "                                    Quantity"
@@ -875,7 +875,7 @@ msgstr ""
 
 #. module: bi_professional_reports_templates
 #: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_deliveryslip_document
-#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_deliveryslip_document
+#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.flectra_std_report_deliveryslip_document
 msgid "Ordered Quantity"
 msgstr "Cantidad ordenada"
 
@@ -903,7 +903,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_invoice_document
 #: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_purchaseorder_document
 #: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_purchasequotation_document
-#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_saleorder_document
+#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.flectra_std_report_saleorder_document
 msgid "Payment Term"
 msgstr "Plazo de pago"
 
@@ -933,15 +933,15 @@ msgstr "Identificación de Paypal"
 #: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_saleorder_document
 #: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_invoice_document
 #: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_saleorder_document
-#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_invoice_document
-#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_saleorder_document
+#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.flectra_std_report_invoice_document
+#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.flectra_std_report_saleorder_document
 msgid "Price"
 msgstr "Precio"
 
 #. module: bi_professional_reports_templates
 #: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_deliveryslip_document
 #: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_deliveryslip_document
-#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_deliveryslip_document
+#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.flectra_std_report_deliveryslip_document
 msgid "Product"
 msgstr "Producto"
 
@@ -971,8 +971,8 @@ msgstr "Orden de compra:"
 #: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_purchaseorder_document
 #: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_purchasequotation_document
 #: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_purchasequotation_document
-#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_standard_report_purchaseorder_document
-#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_purchasequotation_document
+#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.flectra_standard_report_purchaseorder_document
+#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.flectra_std_report_purchasequotation_document
 msgid "Qty"
 msgstr "Cant."
 
@@ -983,8 +983,8 @@ msgstr "Cant."
 #: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_saleorder_document
 #: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_invoice_document
 #: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_saleorder_document
-#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_invoice_document
-#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_saleorder_document
+#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.flectra_std_report_invoice_document
+#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.flectra_std_report_saleorder_document
 msgid "Quantity"
 msgstr "Cantidad"
 
@@ -1017,8 +1017,8 @@ msgstr "Solicitud de Quatation #"
 
 #. module: bi_professional_reports_templates
 #: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_purchasequotation_document
-#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_standard_report_purchaseorder_document
-#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_purchasequotation_document
+#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.flectra_standard_report_purchaseorder_document
+#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.flectra_std_report_purchasequotation_document
 msgid "Request for Quotation"
 msgstr "Solicitud de presupuesto"
 
@@ -1042,7 +1042,7 @@ msgstr "Pedido de venta"
 #. module: bi_professional_reports_templates
 #: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.classic_report_invoice_document
 #: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_invoice_document
-#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_saleorder_document
+#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.flectra_std_report_saleorder_document
 msgid "SalesPerson"
 msgstr ""
 
@@ -1115,15 +1115,15 @@ msgstr "código SWIFT"
 #: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_invoice_document
 #: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_purchaseorder_document
 #: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_saleorder_document
-#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_standard_report_purchaseorder_document
-#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_invoice_document
-#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_saleorder_document
+#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.flectra_standard_report_purchaseorder_document
+#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.flectra_std_report_invoice_document
+#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.flectra_std_report_saleorder_document
 msgid "Taxes"
 msgstr "Impuestos"
 
 #. module: bi_professional_reports_templates
 #: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_deliveryslip_document
-#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_deliveryslip_document
+#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.flectra_std_report_deliveryslip_document
 msgid "This shipment is a backorder of"
 msgstr "Este envío es un pedido pendiente de"
 
@@ -1135,9 +1135,9 @@ msgstr "Este envío es un pedido pendiente de"
 #: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.fency_report_saleorder_document
 #: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_invoice_document
 #: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.modern_report_saleorder_document
-#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_standard_report_purchaseorder_document
-#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_invoice_document
-#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_saleorder_document
+#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.flectra_standard_report_purchaseorder_document
+#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.flectra_std_report_invoice_document
+#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.flectra_std_report_saleorder_document
 msgid "Unit Price"
 msgstr "Precio unitario"
 
@@ -1150,7 +1150,7 @@ msgid "Vendor"
 msgstr "Vendedora"
 
 #. module: bi_professional_reports_templates
-#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.odoo_std_report_saleorder_document
+#: model_terms:ir.ui.view,arch_db:bi_professional_reports_templates.flectra_std_report_saleorder_document
 msgid "Your Reference:"
 msgstr "Tu referencia:"
 

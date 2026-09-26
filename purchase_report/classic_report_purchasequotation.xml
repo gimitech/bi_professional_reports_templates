@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<flectra>
     <data>
         <template id="classic_report_purchasequotation_document">
             <t t-if="o and 'company_id' in o">
@@ -244,8 +244,8 @@
                             <t t-call="bi_professional_reports_templates.modern_report_purchasequotation_document"
                                t-lang="o.partner_id.lang"/>
                         </t>
-                        <t t-if="o.company_id.purchase_template == 'odoo_standard'">
-                            <t t-call="bi_professional_reports_templates.odoo_std_report_purchasequotation_document"
+                        <t t-if="o.company_id.purchase_template == 'flectra_standard'">
+                            <t t-call="bi_professional_reports_templates.flectra_std_report_purchasequotation_document"
                                t-lang="o.partner_id.lang"/>
                         </t>
                         <t t-if="o.company_id.purchase_template == 'fency'">
@@ -257,5 +257,5 @@
             </xpath>
         </template>
     </data>
-</odoo>
+</flectra>
     

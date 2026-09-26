@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 # Part of BrowseInfo. See LICENSE file for full copyright and licensing details.
 
-from odoo import models, fields, api, _
+from flectra import models, fields, api, _
 from base64 import b64decode,b64encode
 import io
 from io import BytesIO
 from PyPDF2 import PdfFileReader, PdfFileWriter
 
-from odoo.exceptions import UserError, ValidationError
+from flectra.exceptions import UserError, ValidationError
 
 
 class res_company(models.Model):
@@ -17,7 +17,7 @@ class res_company(models.Model):
             ('fency', 'Fency'),
             ('classic', 'Classic'),
             ('modern', 'Modern'),
-            ('odoo_standard', 'Odoo Standard'),
+            ('flectra_standard', 'Flectra Standard'),
         ], 'Sale')
     color_sale = fields.Char("Sale Report Color",
                              help="Background color for Sale")
@@ -27,7 +27,7 @@ class res_company(models.Model):
             ('fency', 'Fency'),
             ('classic', 'Classic'),
             ('modern', 'Modern'),
-            ('odoo_standard', 'Odoo Standard'),
+            ('flectra_standard', 'Flectra Standard'),
         ], 'Purchase')
     color_purchase = fields.Char("Purchase Report Color",
                              help="Background color for Purchase")
@@ -37,7 +37,7 @@ class res_company(models.Model):
             ('fency', 'Fency'),
             ('classic', 'Classic'),
             ('modern', 'Modern'),
-            ('odoo_standard', 'Odoo Standard'),
+            ('flectra_standard', 'Flectra Standard'),
         ], 'Stock')
     color_stock = fields.Char("Stock Report Color",
                                  help="Background color for Stock")
@@ -47,7 +47,7 @@ class res_company(models.Model):
             ('fency', 'Fency'),
             ('classic', 'Classic'),
             ('modern', 'Modern'),
-            ('odoo_standard', 'Odoo Standard'),
+            ('flectra_standard', 'Flectra Standard'),
         ], 'Account')
 
     color_account= fields.Char("Account Report Color",

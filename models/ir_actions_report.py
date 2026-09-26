@@ -8,7 +8,7 @@ from io import BytesIO
 from PyPDF2 import PdfFileReader, PdfFileWriter
 
 
-from odoo import api, fields, models
+from flectra import api, fields, models
 
 
 

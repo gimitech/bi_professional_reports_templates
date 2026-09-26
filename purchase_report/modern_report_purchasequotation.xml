@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<flectra>
     <data>
         <template id="modern_report_purchasequotation_document">
             <t t-if="o and 'company_id' in o">
@@ -224,5 +224,5 @@
         </template>
 
     </data>
-</odoo>
+</flectra>
     

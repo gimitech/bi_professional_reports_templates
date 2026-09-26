@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo>
+<flectra>
     <data>
         <template id="modern_report_deliveryslip_document">
             <t t-if="o and 'company_id' in o">
@@ -273,4 +273,4 @@
             </t>
         </template>
     </data>
-</odoo>
+</flectra>
