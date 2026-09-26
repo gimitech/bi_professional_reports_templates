@@ -103,7 +103,7 @@
                          <div class="col-6" style="padding-right: 5px;">
                             <table class="table table-sm table-bordered" style="table-layout: fixed; width: 100%; border: 1px solid #dee2e6 !important;">
                                 <thead style="background-color: #f8f9fa !important;">
-                                    <tr style="background-color: #f8f9fa !important;"><th style="font-size: 12px; padding: 4px 8px; background-color: #f8f9fa !important; color: #333333 !important;">Giao hàng</th></tr>
+                                    <tr style="background-color: #f8f9fa !important;"><th colspan="2" style="font-size: 12px; padding: 4px 8px; background-color: #f8f9fa !important; color: #333333 !important;">Giao hàng</th></tr>
                                 </thead>
                                 <tbody style="background-color: #ffffff !important; color: #333333 !important;">
                                     <tr style="background-color: #ffffff !important;">
@@ -151,7 +151,7 @@
                     <t t-set="display_discount" t-value="any([l.discount for l in doc.order_line])"/>
 
                     <!-- Main Lines Items Table Grid -->
-                    <p style="font-weight: bold; margin-bottom: 6px; font-size: 12px; color: #555;">Details</p>
+                    <p style="font-weight: bold; margin-bottom: 6px; font-size: 12px; color: #555;">Chi tiết</p>
                     <table class="table table-sm table-bordered" style="table-layout: fixed; width: 100%; border: 1px solid #dee2e6 !important;">
                         <thead>
                             <tr style="background-color: #f8f9fa !important; color: #333333 !important; font-size: 11px;">
