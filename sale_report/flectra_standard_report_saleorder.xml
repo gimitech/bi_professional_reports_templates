@@ -16,7 +16,7 @@
                     <div class="col-6">
                         <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="max-height: 80px;"/>
                     </div>
-                    <div class="col-6 text-right" style="font:14px sans-serif !important; text-align: right;">
+                    <div class="col-6 text-left" style="font:14px sans-serif !important; text-align: right;">
                         <strong t-field="company.partner_id"/><br/>
                         <span t-if="company.partner_id.street" t-field="company.partner_id.street"/><br/>
                         <span t-if="company.partner_id.street2" t-field="company.partner_id.street2"/><br/>
@@ -37,8 +37,8 @@
                     
                     <!-- Document Title and Customer Block -->
                     <div class="row mb32" style="margin-top: 0px; padding-top: 5px;">
-                        <div class="col-6 text-left" style="text-align: left; font-size: 13px;">
-                            <h1 style="font-weight: bold; margin-top: 5px; margin-bottom: 2px; font-size: 28px; color: #333333;">Quotation</h1>
+                        <div class="col-6 text-center" style="text-align: center; font-size: 13px;">
+                            <h1 style="font-weight: bold; margin-top: 1px; margin-bottom: 2px; font-size: 28px; color: #333333;">Quotation</h1>
                             <p style="font-size: 14px; color: #555;">Ref# <span t-field="doc.name"/></p>
                         </div>
                         <div class="col-6 text-left" style="text-align: left; font-size: 13px;">
