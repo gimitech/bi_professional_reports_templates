@@ -16,13 +16,13 @@
                     <div class="col-6">
                         <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="max-height: 80px;"/>
                     </div>
-                    <div class="col-6 text-left" style="font:14px sans-serif !important; text-align: left;">
+                    <div class="col-6 text-left" style="font:14px sans-serif !important; text-align: center;">
                         <strong t-field="company.partner_id"/><br/>
                         <span t-if="company.partner_id.street" t-field="company.partner_id.street"/><br/>
                         <span t-if="company.partner_id.street2" t-field="company.partner_id.street2"/><br/>
                         <span t-if="company.partner_id.city" t-field="company.partner_id.city"/>
                         <span t-if="company.partner_id.country_id">, <span t-field="company.partner_id.country_id.name"/></span><br/>
-                        <span t-if="company.partner_id.vat">Tax No: <span t-field="company.partner_id.vat"/></span>
+                        <span t-if="company.partner_id.vat">MST: <span t-field="company.partner_id.vat"/></span>
                     </div>
                 </div>
                 <!-- Horizontal Rule dividing the Top Header and Layout Body as seen in original -->
@@ -38,7 +38,7 @@
                     <!-- Document Title and Customer Block -->
                     <div class="row mb32" style="margin-top: 0px; padding-top: 1px;">
                         <div class="col-6 text-center" style="text-align: center; font-size: 13px;">
-                            <h1 style="font-weight: bold; margin-top: 2px; margin-bottom: 2px; font-size: 24px; color: #333333;">Bảng Chào Giá</h1>
+                            <h1 style="font-weight: bold; margin-top: 2px; margin-bottom: 2px; font-size: 24px; color: #333333;">BÁO GIÁ</h1>
                             <p style="font-size: 14px; color: #555;">Ref# <span t-field="doc.name"/></p>
                         </div>
                         <div class="col-6 text-left" style="text-align: left; font-size: 13px;">
@@ -48,7 +48,7 @@
                             <span t-if="doc.partner_id.street2" t-field="doc.partner_id.street2"/><br/>
                             <span t-if="doc.partner_id.city" t-field="doc.partner_id.city"/>
                             <span t-if="doc.partner_id.country_id">, <span t-field="doc.partner_id.country_id.name"/></span><br/>
-                            <span t-if="doc.partner_id.vat"> Mã số thuế: <span t-field="doc.partner_id.vat"/></span>
+                            <span t-if="doc.partner_id.vat"> MST: <span t-field="doc.partner_id.vat"/></span>
                         </div>
                     </div>
 
@@ -86,7 +86,11 @@
                                         <td style="width: 60%; padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><span t-field="doc.payment_term_id"/></td>
                                     </tr>
                                     <tr style="background-color: #ffffff !important;">
-                                        <td style="padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><strong> Mã KH:</strong></td>
+                                        <td style="padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><strong>Mã KH:</strong></td>
+                                        <td style="padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><span t-field="doc.client_order_ref"/></td>
+                                    </tr>
+                                    <tr style="background-color: #ffffff !important;">
+                                        <td style="padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><strong>Số HĐ:</strong></td>
                                         <td style="padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><span t-field="doc.client_order_ref"/></td>
                                     </tr>
                                 </tbody>
@@ -106,6 +110,10 @@
                                         <td style="padding: 8px; min-height: 80px; background-color: #ffffff !important; color: #333333 !important;">
                                             <div t-field="doc.partner_shipping_id" t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": True}'/>
                                         </td>
+                                    </tr>
+                                    <tr style="background-color: #ffffff !important;">
+                                        <td style="padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><strong>Số ĐT:</strong></td>
+                                        <td style="padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><span t-field="doc.partner_id.phone"/></td>
                                     </tr>
                                 </tbody>
                             </table>
