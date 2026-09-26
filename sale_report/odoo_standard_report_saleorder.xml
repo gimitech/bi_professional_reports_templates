@@ -3,7 +3,7 @@
     <data>
         <template id="flectra_std_report_saleorder_document">
             <!-- Setup Company Context -->
-            <t t-if="o and 'company_id' in o">
+            <t t-if="doc and 'company_id' in doc">
                 <t t-set="company" t-value="o.company_id"></t>
             </t>
             <t t-if="not o or not 'company_id' in o">
@@ -94,7 +94,7 @@
 
                     <!-- Shipping & Invoicing Section Panels -->
                     <div class="row mb32">
-                        <div class="col-6">
+                         <div class="col-6" style="padding-right: 5px;">
                             <table class="table table-sm table-bordered" style="table-layout: fixed; width: 100%;">
                                 <thead style="background-color: #f8f9fa;">
                                     <tr><th style="font-size: 12px; padding: 4px 8px;">Shipping</th></tr>
@@ -225,4 +225,9 @@
                     <div class="oe_structure"/>
                 </div>
             </t>
-</template>
+    </template>
+    </data>
+</flectra>
+   
+
+
