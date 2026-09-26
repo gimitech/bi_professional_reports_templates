@@ -3,7 +3,7 @@
 
 {
     'name': 'Flectra Professional Report Templates',
-    'version': '17.0.0.1',
+    'version': '3.0.1.0.0',
     'category': 'Tools',
     'license': 'OPL-1',
     'summary': 'Easily Customizable Report Template for Quotation/SO/Sales, Invoice, Picking/Delivery Order,RFQ/PO/Purchases',
