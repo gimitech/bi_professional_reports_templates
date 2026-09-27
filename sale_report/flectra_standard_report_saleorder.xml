@@ -42,16 +42,16 @@
                             <p style="font-size: 14px; color: #555;">Ref# <span t-field="doc.name"/></p>
                         </div>
 
-                                            <!-- Shipping & Invoicing Section Panels -->
+                                            <!-- Customer information Section Panels -->
                     <div class="row mb32">
                          <div class="col-6" style="padding-right: 5px;">
                             <table class="table table-sm table-bordered" style="table-layout: fixed; width: 100%; border: 1px solid #dee2e6 !important;">
                                 <thead style="background-color: #f8f9fa !important;">
-                                    <tr style="background-color: #f8f9fa !important;"><th colspan="2" style="font-size: 12px; padding: 4px 8px; background-color: #f8f9fa !important; color: #333333 !important;">Giao hàng</th></tr>
+                                    <tr style="background-color: #f8f9fa !important;"><th colspan="2" style="font-size: 12px; padding: 4px 8px; background-color: #f8f9fa !important; color: #333333 !important;">Khách hàng</th></tr>
                                 </thead>
                                 <tbody style="background-color: #ffffff !important; color: #333333 !important;">
                                     <tr style="background-color: #ffffff !important;">
-                                        <td style="padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><strong>Địa chỉ:</strong></td>
+                                        <td style="padding: 1px 8px; background-color: #ffffff !important; color: #333333 !important;"><strong>Địa chỉ:</strong></td>
                                         <td style="padding: 8px; min-height: 80px; background-color: #ffffff !important; color: #333333 !important;">
                                             <div t-field="doc.partner_shipping_id" t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": True}'/>
                                         </td>
