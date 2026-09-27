@@ -37,22 +37,23 @@
                     
                     <!-- Document Title and Customer Block -->
                     <div class="row mb32" style="margin-top: 0px; padding-top: 1px;">
-                        <div class="col-6 text-center" style="text-align: center; font-size: 13px; padding-top: 15px;">
+                        <div class="col-6 text-center" style="text-align: center; font-size: 13px;">
                             <h1 style="font-weight: bold; margin-top: 2px; margin-bottom: 2px; font-size: 24px; color: #333333;">BÁO GIÁ</h1>
                             <p style="font-size: 14px; color: #555;">Ref# <span t-field="doc.name"/></p>
                         </div>
 
-                        <!-- Customer information Section Panels -->
-                        <div class="col-6" style="padding-left: 5px;">
+                                            <!-- Customer information Section Panels -->
+                    <div class="row mb32">
+                         <div class="col-6" style="padding-right: 5px;">
                             <table class="table table-sm table-bordered" style="table-layout: fixed; width: 100%; border: 1px solid #dee2e6 !important;">
                                 <thead style="background-color: #f8f9fa !important;">
-                                    <tr style="background-color: #f8f9fa !important;"><th colspan="2" style="font-size: 12px; padding: 4px 8px; background-color: #f8f9fa !important; color: #333333 !important; text-align: center;">KHÁCH HÀNG</th></tr>
+                                    <tr style="background-color: #f8f9fa !important;"><th colspan="2" style="font-size: 12px; padding: 4px 8px; background-color: #f8f9fa !important; color: #333333 !important;">Khách hàng</th></tr>
                                 </thead>
                                 <tbody style="background-color: #ffffff !important; color: #333333 !important;">
                                     <tr style="background-color: #ffffff !important;">
-                                        <td style="padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important; width: 25%;"><strong>Địa chỉ:</strong></td>
-                                        <td style="padding: 4px 8px; min-height: 80px; background-color: #ffffff !important; color: #333333 !important;">
-                                            <div t-field="doc.partner_id" t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": True}'/>
+                                        <td style="padding: 1px 8px; background-color: #ffffff !important; color: #333333 !important;"><strong>Địa chỉ:</strong></td>
+                                        <td style="padding: 8px; min-height: 80px; background-color: #ffffff !important; color: #333333 !important;">
+                                            <div t-field="doc.partner_shipping_id" t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": True}'/>
                                         </td>
                                     </tr>
                                     <tr style="background-color: #ffffff !important;">
@@ -62,6 +63,7 @@
                                 </tbody>
                             </table>
                         </div>
+                         </div>
                     </div>
 
                     <!-- Information & Status Meta Blocks -->
@@ -69,11 +71,11 @@
                         <div class="col-6" style="padding-right: 5px;">
                             <table class="table table-sm table-bordered" style="table-layout: fixed; width: 100%; border: 1px solid #dee2e6 !important;">
                                 <thead style="background-color: #f8f9fa !important;">
-                                    <tr style="background-color: #f8f9fa !important;"><th colspan="2" style="font-size: 12px; padding: 4px 8px; background-color: #f8f9fa !important; color: #333333 !important; text-align: center;">THÔNG TIN</th></tr>
+                                    <tr style="background-color: #f8f9fa !important;"><th colspan="2" style="font-size: 12px; padding: 4px 8px; background-color: #f8f9fa !important; color: #333333 !important;">Thông tin</th></tr>
                                 </thead>
                                 <tbody style="background-color: #ffffff !important; color: #333333 !important;">
                                     <tr style="background-color: #ffffff !important;">
-                                        <td style="width: 40%; padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><strong>Số BG.</strong></td>
+                                        <td style="width: 40%; padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><strong> Số BG.</strong></td>
                                         <td style="width: 60%; padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><span t-field="doc.name"/></td>
                                     </tr>
                                     <tr style="background-color: #ffffff !important;">
@@ -90,7 +92,7 @@
                         <div class="col-6" style="padding-left: 5px;">
                             <table class="table table-sm table-bordered" style="table-layout: fixed; width: 100%; border: 1px solid #dee2e6 !important;">
                                 <thead style="background-color: #f8f9fa !important;">
-                                    <tr style="background-color: #f8f9fa !important;"><th colspan="2" style="font-size: 12px; padding: 4px 8px; background-color: #f8f9fa !important; color: #333333 !important; text-align: center;">TRẠNG THÁI</th></tr>
+                                    <tr style="background-color: #f8f9fa !important;"><th colspan="2" style="font-size: 12px; padding: 4px 8px; background-color: #f8f9fa !important; color: #333333 !important;">Trạng thái</th></tr>
                                 </thead>
                                 <tbody style="background-color: #ffffff !important; color: #333333 !important;">
                                     <tr style="background-color: #ffffff !important;">
@@ -115,32 +117,32 @@
                          <div class="col-6" style="padding-right: 5px;">
                             <table class="table table-sm table-bordered" style="table-layout: fixed; width: 100%; border: 1px solid #dee2e6 !important;">
                                 <thead style="background-color: #f8f9fa !important;">
-                                    <tr style="background-color: #f8f9fa !important;"><th colspan="2" style="font-size: 12px; padding: 4px 8px; background-color: #f8f9fa !important; color: #333333 !important; text-align: center;">GIAO HÀNG</th></tr>
+                                    <tr style="background-color: #f8f9fa !important;"><th colspan="2" style="font-size: 12px; padding: 4px 8px; background-color: #f8f9fa !important; color: #333333 !important;">Giao hàng</th></tr>
                                 </thead>
                                 <tbody style="background-color: #ffffff !important; color: #333333 !important;">
                                     <tr style="background-color: #ffffff !important;">
-                                        <td style="padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important; width: 25%;"><strong>Địa chỉ:</strong></td>
-                                        <td style="padding: 4px 8px; min-height: 80px; background-color: #ffffff !important; color: #333333 !important;">
+                                        <td style="padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><strong>Địa chỉ:</strong></td>
+                                        <td style="padding: 8px; min-height: 80px; background-color: #ffffff !important; color: #333333 !important;">
                                             <div t-field="doc.partner_shipping_id" t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": True}'/>
                                         </td>
                                     </tr>
                                     <tr style="background-color: #ffffff !important;">
                                         <td style="padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><strong>Số ĐT:</strong></td>
-                                        <td style="padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><span t-field="doc.partner_shipping_id.phone or doc.partner_id.phone"/></td>
+                                        <td style="padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><span t-field="doc.partner_id.phone"/></td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
+                        <!-- Invoicing Information Panel -->
                         <div class="col-6" style="padding-left: 5px;">
                             <table class="table table-sm table-bordered" style="table-layout: fixed; width: 100%; border: 1px solid #dee2e6 !important;">
                                 <thead style="background-color: #f8f9fa !important;">
-                                    <tr style="background-color: #f8f9fa !important;"><th colspan="2" style="font-size: 12px; padding: 4px 8px; background-color: #f8f9fa !important; color: #333333 !important; text-align: center;">HOÁ ĐƠN</th></tr>
+                                    <tr style="background-color: #f8f9fa !important;"><th colspan="2" style="font-size: 12px; padding: 4px 8px; background-color: #f8f9fa !important; color: #333333 !important;">Hoá đơn</th></tr>
                                 </thead>
                                 <tbody style="background-color: #ffffff !important; color: #333333 !important;">
                                     <tr style="background-color: #ffffff !important;">
                                         <td style="width: 45%; padding: 4px 6px; background-color: #ffffff !important; color: #333333 !important;">Confirmation Mode:</td>
-                                        <!-- FIXED: Extracted literal raw text out of unquoted span field logic to eliminate AttributeError -->
-                                        <td style="width: 55%; padding: 4px 6px; text-align: right; background-color: #ffffff !important; color: #333333 !important;">Manual</td>
+                                        <td style="width: 55%; padding: 4px 6px; text-align: right; background-color: #ffffff !important; color: #333333 !important;"><span>Manual</span></td>
                                     </tr>
                                     <tr style="background-color: #ffffff !important;">
                                         <td style="padding: 4px 6px; background-color: #ffffff !important; color: #333333 !important;">Invoice Status:</td>
@@ -167,14 +169,14 @@
                     <table class="table table-sm table-bordered" style="table-layout: fixed; width: 100%; border: 1px solid #dee2e6 !important;">
                         <thead>                           
                             <tr style="background-color: #f8f9fa !important; color: #333333 !important; font-size: 11px;">
-                                <th style="width: 6%; text-align: center; vertical-align: middle; background-color: #f8f9fa !important; color: #333333 !important;">STT</th>
-                                <th style="width: 19%; vertical-align: middle; background-color: #f8f9fa !important; color: #333333 !important;">P/N (Mã)</th>
-                                <th style="width: 35%; vertical-align: middle; background-color: #f8f9fa !important; color: #333333 !important;">MÔ TẢ SẢN PHẨM</th>
-                                <th style="width: 11%; text-align: right; vertical-align: middle; background-color: #f8f9fa !important; color: #333333 !important;">SL</th>
-                                <th style="width: 11%; text-align: right; vertical-align: middle; background-color: #f8f9fa !important; color: #333333 !important;">ĐƠN GIÁ</th>
-                                <th t-if="display_discount" style="width: 8%; text-align: right; vertical-align: middle; background-color: #f8f9fa !important; color: #333333 !important;" groups="sale.group_discount_per_so_line">CK (%)</th>
-                                <th style="width: 10%; text-align: center; vertical-align: middle; background-color: #f8f9fa !important; color: #333333 !important;">THUẾ</th>
-                                <th style="width: 12%; text-align: right; vertical-align: middle; background-color: #f8f9fa !important; color: #333333 !important;">THÀNH TIỀN</th>
+                                <th style="width: 6%; text-align: center; vertical-align: middle; background-color: #f8f9fa !important; color: #333333 !important;">SN.</th>
+                                <th style="width: 19%; vertical-align: middle; background-color: #f8f9fa !important; color: #333333 !important;">P/N</th>
+                                <th style="width: 35%; vertical-align: middle; background-color: #f8f9fa !important; color: #333333 !important;">DESCRIPTION</th>
+                                <th style="width: 11%; text-align: right; vertical-align: middle; background-color: #f8f9fa !important; color: #333333 !important;">QUANTITY</th>
+                                <th style="width: 11%; text-align: right; vertical-align: middle; background-color: #f8f9fa !important; color: #333333 !important;">UNIT PRICE</th>
+                                <th t-if="display_discount" style="width: 8%; text-align: right; vertical-align: middle; background-color: #f8f9fa !important; color: #333333 !important;" groups="sale.group_discount_per_so_line">DISC. (%)</th>
+                                <th style="width: 10%; text-align: center; vertical-align: middle; background-color: #f8f9fa !important; color: #333333 !important;">TAXES</th>
+                                <th style="width: 12%; text-align: right; vertical-align: middle; background-color: #f8f9fa !important; color: #333333 !important;">NET PRICE*</th>
                             </tr>
                         </thead>
                         <tbody class="sale_tbody" style="font-size: 12px; background-color: #ffffff !important;">
@@ -188,6 +190,7 @@
                                         <span t-field="l.product_id.default_code"/>
                                     </td>
                                     <td style="vertical-align: middle; background-color: #ffffff !important; color: #333333 !important;">
+                                     <!--   <span t-field="l.product_id.name"/> -->
                                         <span t-field="l.product_id.display_name"/>
                                     </td>
                                     <td class="text-right" style="vertical-align: middle; background-color: #ffffff !important; color: #333333 !important;">
@@ -206,8 +209,8 @@
                                     <td class="text-right" style="vertical-align: middle; background-color: #ffffff !important; color: #333333 !important;">
                                         <span t-field="l.price_subtotal" t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'/>
                                     </td>
-                                    <t t-set="line_idx" t-value="line_idx + 1"/>
                                 </tr>
+                                <t t-set="line_idx" t-value="line_idx + 1"/>
                             </t>
                         </tbody>
                     </table>
@@ -218,19 +221,19 @@
                             <table class="table table-sm table-bordered" style="width: 100%; font-size: 13px; border: 1px solid #dee2e6 !important;">
                                 <tbody style="background-color: #ffffff !important;">
                                     <tr style="background-color: #ffffff !important;">
-                                        <td style="padding: 6px 8px; background-color: #ffffff !important; color: #333333 !important;"><strong>Cộng tiền hàng</strong></td>
+                                        <td style="padding: 6px 8px; background-color: #ffffff !important; color: #333333 !important;"><strong>Net of Taxes</strong></td>
                                         <td class="text-right" style="padding: 6px 8px; background-color: #ffffff !important; color: #333333 !important;">
                                             <span t-field="doc.amount_untaxed" t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'/>
                                         </td>
                                     </tr>
                                     <tr style="background-color: #ffffff !important;">
-                                        <td style="padding: 6px 8px; background-color: #ffffff !important; color: #333333 !important;">Thuế GTGT</td>
+                                        <td style="padding: 6px 8px; background-color: #ffffff !important; color: #333333 !important;">Taxes</td>
                                         <td class="text-right" style="padding: 6px 8px; background-color: #ffffff !important; color: #333333 !important;">
                                             <span t-field="doc.amount_tax" t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'/>
                                         </td>
                                     </tr>
                                     <tr style="background-color: #f8f9fa !important; font-weight: bold;">
-                                        <td style="padding: 6px 8px; background-color: #f8f9fa !important; color: #000000 !important;"><strong>Tổng cộng tiền thanh toán</strong></td>
+                                        <td style="padding: 6px 8px; background-color: #f8f9fa !important; color: #000000 !important;"><strong>Total</strong></td>
                                         <td class="text-right" style="padding: 6px 8px; background-color: #f8f9fa !important; color: #000000 !important;">
                                             <span t-field="doc.amount_total" t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'/>
                                         </td>
@@ -243,7 +246,7 @@
                     <!-- Terms, Conditions, and Internal Notes -->
                     <div class="mt32" style="border-radius: 4px; padding: 12px; background-color: #fdfdfd; font-size: 12px; border: 1px solid #eee;">
                         <p t-if="doc.note" style="margin-bottom: 0;">
-                            <strong>Ghi chú:</strong><br/>
+                            <strong>Note:</strong><br/>
                             <span t-field="doc.note"/>
                         </p>
                     </div>
