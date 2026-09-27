@@ -39,7 +39,9 @@
                     <div class="row mb32" style="margin-top: 0px; padding-top: 1px;">
                         <div class="col-6 text-center" style="text-align: center; font-size: 13px; padding-top: 15px;">
                             <h1 style="font-weight: bold; margin-top: 2px; margin-bottom: 2px; font-size: 24px; color: #333333;">BÁO GIÁ</h1>
-                            <p style="font-size: 14px; color: #555;">Ref# <span t-field="doc.name"/></p> 
+                            <p style="font-size: 14px; color: #555;">Ref# <span t-field="doc.name"/></p>
+                            <img t-att-src="'/report/barcode/?type=Code128&amp;value=%s&amp;width=300&amp;height=50' % doc.name" 
+     style="width:300px;height:50px;" alt="Barcode"/>
                         </div>
 
                         <!-- Customer information Section Panels -->                       
@@ -229,7 +231,7 @@
 
                     <!-- Totals and Financial Breakdown Section -->
                     <div class="row justify-content-end mt24" name="total">
-                        <div class="col-6 text-center" style="text-align: center; font-size: 13px; padding-top: 15px;">
+                        <div class="col-6 text-center" style="text-align: center; font-size: 13px;">
                         <t t-set="share_url" t-value="'%s/my/orders/%s?access_token=%s' % (doc.get_base_url(), doc.id, doc.access_token)"/>
                         <img t-att-src="'/report/barcode/QR/%s' % (share_url)" 
                          style="width:100px; height:100px;" 
