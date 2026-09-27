@@ -42,8 +42,7 @@
                             <p style="font-size: 14px; color: #555;">Ref# <span t-field="doc.name"/></p>
                             <div class="text-center my-2">
                             <!-- Loops the server baseline context URL parameters directly into a scannable QR layout -->
-                            <img t-att-src="'/report/barcode/?type=QR&amp;value=' + (doc.get_base_url() + '/web#id=' + str(doc.id) + '&amp;model=sale.order&amp;view_type=form')" 
-                                 style="width: 120px; height: 120px; display: block; margin: 0 auto;"/>
+                            <img t-att-src="'/report/barcode/QR/' + doc.name" style="width: 120px; height: 120px; display: block; margin: 0 auto;"/>
                             <small class="text-muted" style="font-size: 10px;">Quét mã xem chi tiết</small>
                             </div>
                         </div>
