@@ -118,7 +118,7 @@
                                     </tr>
                                     <tr style="background-color: #ffffff !important;">
                                         <td style="padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><strong>Hình thức GH</strong></td>
-                                        <td style="padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><span t-field="doc.shipping_policy"/></td>
+                                        <td style="padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><span t-field="doc.picking_policy"/></td>
                                     </tr>
                                 </tbody>
                             </table>
