@@ -262,7 +262,7 @@
                             <span t-field="doc.note"/>
                         </p>
                     </div>
-                    <t t-set="share_url" t-value="'%s/my/orders/%s?access_token=%s' % (o.get_base_url(), o.id, o.access_token)"/>
+                    <t t-set="share_url" t-value="'%s/my/orders/%s?access_token=%s' % (doc.get_base_url(), doc.id, doc.access_token)"/>
 
 <img t-att-src="'/report/barcode/QR/%s' % (share_url)" 
      style="width:150px; height:150px;" 
