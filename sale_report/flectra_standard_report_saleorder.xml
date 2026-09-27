@@ -236,7 +236,7 @@
                                         <td style="padding: 4px 8px; min-height: 80px; background-color: #ffffff !important; color: #333333 !important; border: 0 !important;">
                                             <div class="col-6 text-center" style="text-align: center; font-size: 13px; margin: 0 auto; display: block;">
                                             <t t-set="share_url" t-value="'%s/my/orders/%s?access_token=%s' % (doc.get_base_url(), doc.id, doc.access_token)"/>
-                                            <img t-att-src="'/report/barcode/QR/%s' % (share_url)" style="width:100px; height:100px; display: inline-block; vertical-align: middle; margin: 0 auto;" alt="F309.com QR"/>
+                                            <img t-att-src="'/report/barcode/QR/%s' % (request.env['werkzeug.urls'].url_quote(share_url) if 'werkzeug.urls' in request.env else doc.env['werkzeug.urls'].url_quote(share_url))" style="width:100px; height:100px; display: inline-block; vertical-align: middle; margin: 0 auto;" alt="F309.com QR"/>
                                             </div>
                                         </td>
                                         <td style="padding: 4px 8px; min-height: 80px; background-color: #ffffff !important; color: #333333 !important; border: 0 !important;">
