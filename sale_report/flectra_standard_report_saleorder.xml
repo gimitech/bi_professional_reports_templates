@@ -229,6 +229,12 @@
 
                     <!-- Totals and Financial Breakdown Section -->
                     <div class="row justify-content-end mt24" name="total">
+                        <div class="col-6 text-center" style="text-align: center; font-size: 13px; padding-top: 15px;">
+                        <t t-set="share_url" t-value="'%s/my/orders/%s?access_token=%s' % (doc.get_base_url(), doc.id, doc.access_token)"/>
+                        <img t-att-src="'/report/barcode/QR/%s' % (share_url)" 
+                         style="width:150px; height:150px;" 
+                         alt="Portal Access QR"/>
+                        </div>
                         <div class="col-5">
                             <table class="table table-sm table-bordered" style="width: 100%; font-size: 13px; border: 1px solid #dee2e6 !important;">
                                 <tbody style="background-color: #ffffff !important;">
@@ -263,10 +269,9 @@
                         </p>
                     </div>
                     <t t-set="share_url" t-value="'%s/my/orders/%s?access_token=%s' % (doc.get_base_url(), doc.id, doc.access_token)"/>
-
-<img t-att-src="'/report/barcode/QR/%s' % (share_url)" 
-     style="width:150px; height:150px;" 
-     alt="Portal Access QR"/>
+                        <img t-att-src="'/report/barcode/QR/%s' % (share_url)" 
+                         style="width:150px; height:150px;" 
+                         alt="Portal Access QR"/>
                     <div class="oe_structure"/>
                 </div>
             </t>
