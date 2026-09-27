@@ -237,8 +237,20 @@
                                             <div class="col-6 text-center" style="text-align: center; font-size: 13px; margin: 0 auto; display: block;">
                                             <t t-set="share_url" t-value="'%s/my/orders/%s?access_token=%s' % (doc.get_base_url(), doc.id, doc.access_token)"/>
                                             <img t-att-src="'/report/barcode/QR/%s' % (share_url)" style="width:100px; height:100px; display: inline-block; vertical-align: middle; margin: 0 auto;" alt="F309.com QR"/>
-                                            <img t-att-src="'/report/barcode/?type=QR&amp;value=%s' % quote_plus(doc.get_portal_url(with_token=True))" 
-         style="width:150px; height:150px;"/> </div>
+                                            <div class="text-center mt-3" style="text-align: center; margin-top: 1rem;">
+    <!-- 1. Safely extract values without triggering the unsupported with_token parameter -->
+    <t t-set="base_link" t-value="doc.get_base_url()"/>
+    <t t-set="doc_id" t-value="str(doc.id)"/>
+    <t t-set="token" t-value="str(doc.access_token) if doc.access_token else ''"/>
+    
+    <!-- 2. Combine them into a clean string -->
+    <t t-set="full_portal_url" t-value="base_link + '/my/orders/' + doc_id + '?access_token=' + token"/>
+    
+    <!-- 3. Inject it into the query parameter string using XML-safe ampersands (&amp;) -->
+    <img t-att-src="'/report/barcode/?type=QR&amp;value=' + full_portal_url + '&amp;width=150&amp;height=150'" 
+         style="width:150px; height:150px; display: inline-block;"/>
+</div>
+                                            </div>
                                         </td>
                                         <td style="padding: 4px 8px; min-height: 80px; background-color: #ffffff !important; color: #333333 !important; border: 0 !important;">
                                             <div class="col-6 text-center" style="text-align: center; font-size: 13px; margin: 0 auto; display: block;">         
