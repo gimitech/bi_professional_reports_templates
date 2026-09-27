@@ -41,10 +41,11 @@
                             <h1 style="font-weight: bold; margin-top: 2px; margin-bottom: 2px; font-size: 24px; color: #333333;">BÁO GIÁ</h1>
                             <p style="font-size: 14px; color: #555;">Ref# <span t-field="doc.name"/></p>
                                 <div class="text-center my-2" style="padding-top: 5px;">
-                                <!-- NATIVE WIDGET: Bypasses network/URL lookups to guarantee printing under wkhtmltopdf -->
-                                <span t-field="doc.name" t-options='{"widget": "barcode", "symbology": "Code128", "width": 400, "height": 100, "img_style": "width: 140px; height: 40px; display: block; margin: 0 auto;"}'/>
-                                <small class="text-muted" style="font-size: 10px; margin-top: 2px; display: block;">Mã số chứng từ / Ref Barcode</small>
+                                <!-- Bypasses ReportLab by rendering the text directly into a Code128 font format -->
+                                <span t-field="doc.name" style="font-family: 'Libre Barcode 128', 'Barcode 128', sans-serif; font-size: 38px; display: block; margin: 0 auto; line-height: 1; letter-spacing: 0px;"/>
+                                <small class="text-muted" style="font-size: 10px; margin-top: 2px; display: block;">*<span t-field="doc.name"/>*</small>
                                 </div>
+
                         </div>
 
                         <!-- Customer information Section Panels -->                       
