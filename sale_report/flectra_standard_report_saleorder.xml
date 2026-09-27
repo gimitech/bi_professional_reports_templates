@@ -230,12 +230,9 @@
 
                     <!-- Totals and Financial Breakdown Section -->
                         <div class="row justify-content-end mt24" name="total">
-                            <div class="col-6" style="padding-right: 5px;">
-                            <table class="table table-sm table-bordered" style="table-layout: fixed; width: 100%; border: 1px solid #dee2e6 !important;">
-                                <thead>
-                                    <tr><th></th></tr>
-                                </thead>
-                                <tbody style="background-color: #ffffff !important; color: #333333 !important;">
+                            <div class="col-5" style="padding-right: 5px;">
+                            <table class="table table-sm table-bordered" style="table-layout: fixed; width: 100%; border: 1px solid #dee2e6 !important;">                               
+                                <tbody style="text-align: center; background-color: #ffffff !important; color: #333333 !important;">
                                     <tr style="background-color: #ffffff !important;">
                                         <td style="padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important; width: 25%;">
                                         <div class="col-6 text-center" style="text-align: center; font-size: 13px;">
@@ -244,8 +241,8 @@
                                         </div>
                                         </td>
                                         <td style="padding: 4px 8px; min-height: 80px; background-color: #ffffff !important; color: #333333 !important;">
-                                            <div class="col-4 text-center">            
-                                            <img src="https://gimitec.com/mag/image/0938141821.png" style="mwidth:100px; height:100px; display: inline-block;"/>
+                                            <div class="col-6 text-center">            
+                                            <img src="https://gimitec.com/mag/image/0938141821.png" style="width:100px; height:100px; display: inline-block;"/>
                                             </div>
                                         </td>
                                     </tr>
