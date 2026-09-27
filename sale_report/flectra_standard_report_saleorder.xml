@@ -40,7 +40,14 @@
                         <div class="col-6 text-center" style="text-align: center; font-size: 13px; padding-top: 15px;">
                             <h1 style="font-weight: bold; margin-top: 2px; margin-bottom: 2px; font-size: 24px; color: #333333;">BÁO GIÁ</h1>
                             <p style="font-size: 14px; color: #555;">Ref# <span t-field="doc.name"/></p>
-                               <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128', doc.name, 600, 100)" style="width:300px;height:50px;" alt="Barcode"/>
+                               <div class="text-center my-2" style="padding-top: 5px;">
+    <!-- FIXED BASE64 CONVERTER: Uses the global codecs engine to output correct Base64 strings natively -->
+    <img t-att-src="'data:image/png;base64,' + doc.env['ir.actions.report'].codecs.encode(doc.env['ir.actions.report'].barcode('Code128', doc.name), 'base64').decode('ascii').replace('\n', '')" 
+         style="width: 300px; height: 50px;" 
+         alt="Barcode"
+         t-if="doc.name"/>
+    <small class="text-muted" style="font-size: 11px; margin-top: 3px; display: block; letter-spacing: 1px;" t-field="doc.name"/>
+</div>
                         </div>
 
                         <!-- Customer information Section Panels -->                       
