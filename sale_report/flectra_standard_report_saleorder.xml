@@ -208,7 +208,7 @@
                                         <span t-field="l.discount"/>
                                     </td>
                                     <td class="text-center" style="vertical-align: middle; background-color: #ffffff !important; color: #333333 !important;">
-                                        <span t-esc="', '.join(map(lambda x: (x.description or x.name), l.tax_id))"/>
+                                        <span t-esc="', '.join(map(lambda x: (x.name), l.tax_id))"/>
                                         <span t-field="l.tax_id"/>
                                     </td>
                                     <td class="text-right" style="vertical-align: middle; background-color: #ffffff !important; color: #333333 !important;">
