@@ -52,7 +52,7 @@
                                     <tr style="background-color: #ffffff !important;">
                                         <td style="padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important; width: 30%;"><strong>Địa chỉ:</strong></td>
                                         <td style="padding: 8px; min-height: 80px; background-color: #ffffff !important; color: #333333 !important;">
-                                            <div t-field="doc.partner_id" t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": True}'/>
+                                            <div t-field="doc.partner_shipping_id" t-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": True}'/>
                                         </td>
                                     </tr>
                                     <tr style="background-color: #ffffff !important;">
