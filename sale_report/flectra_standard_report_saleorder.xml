@@ -40,7 +40,7 @@
                         <div class="col-6 text-center" style="text-align: center; font-size: 13px; padding-top: 15px;">
                             <h1 style="font-weight: bold; margin-top: 2px; margin-bottom: 2px; font-size: 24px; color: #333333;">BÁO GIÁ</h1>
                             <p style="font-size: 14px; color: #555;">Ref# <span t-field="doc.name"/></p>
-                            <img t-att-src="'/report/barcode/?barcode_type=Code128&amp;value=%s&amp;width=300&amp;height=50' % quote(doc.name)" style="width:300px;height:50px;" alt="Barcode"/>
+                            <img t-att-src="'/report/barcode/?barcode_type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128', quote(doc.name), 600, 100)" style="width:300px;height:50px;" alt="Barcode"/>
                         </div>
 
                         <!-- Customer information Section Panels -->                       
