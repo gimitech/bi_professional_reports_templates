@@ -126,7 +126,7 @@
                                     </tr>
                                     <tr style="background-color: #ffffff !important;">
                                         <td style="padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><strong>Số ĐT:</strong></td>
-                                        <td style="padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><span t-field="doc.partner_shipping_id.phone or doc.partner_id.phone"/></td>
+                                        <td style="padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><span t-field="doc.partner_id.phone"/></td>
                                     </tr>
                                 </tbody>
                             </table>
