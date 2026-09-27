@@ -40,7 +40,7 @@
                         <div class="col-6 text-center" style="text-align: center; font-size: 13px; padding-top: 15px;">
                             <h1 style="font-weight: bold; margin-top: 2px; margin-bottom: 2px; font-size: 24px; color: #333333;">BÁO GIÁ</h1>
                             <p style="font-size: 14px; color: #555;">Ref# <span t-field="doc.name"/></p>
-                            <img t-att-src="'/report/barcode/?barcode_type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128', doc.name, 600, 100)" style="width: 300px; height: 50px;"/>
+                            <img t-att-src="'/report/barcode/?barcode_type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128', doc.name, 600, 100)" style="width: 300px; height: 25px;"/>
                         </div>
 
                         <!-- Customer information Section Panels -->                       
@@ -118,7 +118,7 @@
                                         <td style="padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><span t-field="doc.client_order_ref"/></td>
                                     </tr>
                                     <tr style="background-color: #ffffff !important;">
-                                        <td style="padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><strong>Hình thức GH</strong></td>
+                                        <td style="padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><strong>HTGH</strong></td>
                                         <td style="padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><span t-field="doc.picking_policy"/></td>
                                     </tr>
                                 </tbody>
