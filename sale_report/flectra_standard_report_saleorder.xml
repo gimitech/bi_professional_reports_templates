@@ -175,13 +175,13 @@
                         <thead>                           
                             <tr style="background-color: #f8f9fa !important; color: #333333 !important; font-size: 11px;">
                                 <th style="width: 6%; text-align: center; vertical-align: middle; background-color: #f8f9fa !important; color: #333333 !important;">STT</th>
-                                <th style="width: 19%; vertical-align: middle; background-color: #f8f9fa !important; color: #333333 !important;">P/N (Mã)</th>
-                                <th style="width: 35%; vertical-align: middle; background-color: #f8f9fa !important; color: #333333 !important;">MÔ TẢ SẢN PHẨM</th>
-                                <th style="width: 11%; text-align: right; vertical-align: middle; background-color: #f8f9fa !important; color: #333333 !important;">SL</th>
-                                <th style="width: 11%; text-align: right; vertical-align: middle; background-color: #f8f9fa !important; color: #333333 !important;">ĐƠN GIÁ</th>
-                                <th t-if="display_discount" style="width: 8%; text-align: right; vertical-align: middle; background-color: #f8f9fa !important; color: #333333 !important;" groups="sale.group_discount_per_so_line">CK (%)</th>
+                                <th style="width: 19%; text-align: center; vertical-align: middle; background-color: #f8f9fa !important; color: #333333 !important;">P/N (Mã)</th>
+                                <th style="width: 35%; text-align: center; vertical-align: middle; background-color: #f8f9fa !important; color: #333333 !important;">MÔ TẢ SẢN PHẨM</th>
+                                <th style="width: 11%; text-align: center;; vertical-align: middle; background-color: #f8f9fa !important; color: #333333 !important;">SL</th>
+                                <th style="width: 11%; text-align: center;; vertical-align: middle; background-color: #f8f9fa !important; color: #333333 !important;">ĐƠN GIÁ</th>
+                                <th t-if="display_discount" style="width: 8%; text-align: center;; vertical-align: middle; background-color: #f8f9fa !important; color: #333333 !important;" groups="sale.group_discount_per_so_line">CK (%)</th>
                                 <th style="width: 10%; text-align: center; vertical-align: middle; background-color: #f8f9fa !important; color: #333333 !important;">THUẾ</th>
-                                <th style="width: 12%; text-align: right; vertical-align: middle; background-color: #f8f9fa !important; color: #333333 !important;">THÀNH TIỀN</th>
+                                <th style="width: 12%; text-align: center;; vertical-align: middle; background-color: #f8f9fa !important; color: #333333 !important;">THÀNH TIỀN</th>
                             </tr>
                         </thead>
                         <tbody class="sale_tbody" style="font-size: 12px; background-color: #ffffff !important;">
@@ -197,20 +197,20 @@
                                     <td style="vertical-align: middle; background-color: #ffffff !important; color: #333333 !important;">
                                         <span t-field="l.product_id.display_name"/>
                                     </td>
-                                    <td class="text-right" style="vertical-align: middle; background-color: #ffffff !important; color: #333333 !important;">
+                                    <td class="text-right" style="text-align: center; vertical-align: middle; background-color: #ffffff !important; color: #333333 !important;">
                                         <span t-field="l.product_uom_qty"/>
                                         <span groups="product.group_uom" t-field="l.product_uom"/>
                                     </td>
-                                    <td class="text-right" style="vertical-align: middle; background-color: #ffffff !important; color: #333333 !important;">
+                                    <td class="text-right" style="text-align: center; vertical-align: middle; background-color: #ffffff !important; color: #333333 !important;">
                                         <span t-field="l.price_unit"/>
                                     </td>
-                                    <td t-if="display_discount" class="text-right" groups="sale.group_discount_per_so_line" style="vertical-align: middle; background-color: #ffffff !important; color: #333333 !important;">
+                                    <td t-if="display_discount" class="text-right" groups="sale.group_discount_per_so_line" style="text-align: center; vertical-align: middle; background-color: #ffffff !important; color: #333333 !important;">
                                         <span t-field="l.discount"/>
                                     </td>
-                                    <td class="text-center" style="vertical-align: middle; background-color: #ffffff !important; color: #333333 !important;">                                        
+                                    <td class="text-center" style="text-align: center; vertical-align: middle; background-color: #ffffff !important; color: #333333 !important;">                                        
                                         <span t-field="l.tax_id"/>
                                     </td>
-                                    <td class="text-right" style="vertical-align: middle; background-color: #ffffff !important; color: #333333 !important;">
+                                    <td class="text-right" style="text-align: center; vertical-align: middle; background-color: #ffffff !important; color: #333333 !important;">
                                         <span t-field="l.price_subtotal" t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'/>
                                     </td>
                                     <t t-set="line_idx" t-value="line_idx + 1"/>
