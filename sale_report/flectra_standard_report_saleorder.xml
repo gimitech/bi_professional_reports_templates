@@ -14,7 +14,7 @@
             <div class="header" style="margin-bottom: 0px; padding-bottom: 0px;">
                 <div class="row mt32 mb16">
                     <div class="col-6">
-                        <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="max-height: 80px"/>
+                        <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="max-height: 80px;"/>
                     </div>
                     <div class="col-6 text-left" style="font:14px sans-serif !important; text-align: center;">
                         <strong t-field="company.partner_id"/><br/>
@@ -42,7 +42,7 @@
                             <p style="font-size: 14px; color: #555;">Ref# <span t-field="doc.name"/></p>
                         </div>
                         
-                        <!-- FIXED: Closed the previous col-6 and matched layout margins -->
+                        <!-- FIXED: Closed previous col-6, and wrapped customer data cleanly -->
                         <div class="col-6" style="padding-left: 5px;">
                             <table class="table table-sm table-bordered" style="table-layout: fixed; width: 100%; border: 1px solid #dee2e6 !important;">
                                 <thead style="background-color: #f8f9fa !important;">
@@ -139,7 +139,8 @@
                                 <tbody style="background-color: #ffffff !important; color: #333333 !important;">
                                     <tr style="background-color: #ffffff !important;">
                                         <td style="width: 45%; padding: 4px 6px; background-color: #ffffff !important; color: #333333 !important;">Confirmation Mode:</td>
-                                        <td style="width: 55%; padding: 4px 6px; text-align: right; background-color: #ffffff !important; color: #333333 !important;"><span>Manual</span></td>
+                                        <!-- FIXED: Extracted literal raw text out of unquoted span field logic -->
+                                        <td style="width: 55%; padding: 4px 6px; text-align: right; background-color: #ffffff !important; color: #333333 !important;">Manual</td>
                                     </tr>
                                     <tr style="background-color: #ffffff !important;">
                                         <td style="padding: 4px 6px; background-color: #ffffff !important; color: #333333 !important;">Invoice Status:</td>
@@ -147,7 +148,7 @@
                                     </tr>
                                     <tr style="background-color: #ffffff !important;">
                                         <td style="padding: 4px 6px; background-color: #ffffff !important; color: #333333 !important;">Incoterm:</td>
-                                        <td style="padding: 4px 6px; text-align: right; background-color: #ffffff !important; color: #333333 !important;"><span t-if="'incoterm' in doc" t-field="doc.incoterm.code"/></td>
+                                        <td style="padding: 4px 6px; text-align: right; background-color: #ffffff !important; color: #333333 !important;"><span t-if="'incoterm' in doc and doc.incoterm" t-field="doc.incoterm.code"/></td>
                                     </tr>
                                     <tr style="background-color: #ffffff !important;">
                                         <td style="padding: 4px 6px; background-color: #ffffff !important; color: #333333 !important;">Confirmation Date:</td>
@@ -161,7 +162,6 @@
                     <!-- Is there a discount on at least one line? -->
                     <t t-set="display_discount" t-value="any([l.discount for l in doc.order_line])"/>
 
-                    <!-- Main Lines Items Table Grid -->
                     <p style="font-weight: bold; margin-bottom: 6px; font-size: 12px; color: #555;">Chi tiết</p>
                     <table class="table table-sm table-bordered" style="table-layout: fixed; width: 100%; border: 1px solid #dee2e6 !important;">
                         <thead>                           
@@ -180,48 +180,38 @@
                             <t t-set="line_idx" t-value="1"/>
                             <t t-foreach="doc.order_line" t-as="l">
                                 <tr t-if="l.product_uom_qty" style="background-color: #ffffff !important;">
-                                    <!-- 1. STT (Serial Index Number) -->
                                     <td class="text-center" style="vertical-align: middle; background-color: #ffffff !important; color: #333333 !important;">
                                         <t t-esc="line_idx"/>
                                     </td>
-                                    <!-- 2. SKU Internal Reference -->
                                     <td style="vertical-align: middle; background-color: #ffffff !important; color: #333333 !important;">
                                         <span t-field="l.product_id.default_code"/>
                                     </td>
-                                    <!-- 3. Variant Display Name String -->
                                     <td style="vertical-align: middle; background-color: #ffffff !important; color: #333333 !important;">
                                         <span t-field="l.product_id.display_name"/>
                                     </td>
-                                    <!-- 4. Quantities -->
                                     <td class="text-right" style="vertical-align: middle; background-color: #ffffff !important; color: #333333 !important;">
                                         <span t-field="l.product_uom_qty"/>
                                         <span groups="product.group_uom" t-field="l.product_uom"/>
                                     </td>
-                                    <!-- 5. Single Unit Costs -->
                                     <td class="text-right" style="vertical-align: middle; background-color: #ffffff !important; color: #333333 !important;">
                                         <span t-field="l.price_unit"/>
                                     </td>
-                                    <!-- 6. Discounts if active -->
                                     <td t-if="display_discount" class="text-right" groups="sale.group_discount_per_so_line" style="vertical-align: middle; background-color: #ffffff !important; color: #333333 !important;">
                                         <span t-field="l.discount"/>
                                     </td>
-                                    <!-- 7. Taxes -->
                                     <td class="text-center" style="vertical-align: middle; background-color: #ffffff !important; color: #333333 !important;">
                                         <span t-esc="', '.join(map(lambda x: (x.description or x.name), l.tax_id))"/>
                                     </td>
-                                    <!-- 8. Net Line Totals -->
                                     <td class="text-right" style="vertical-align: middle; background-color: #ffffff !important; color: #333333 !important;">
-                                        <span t-field="l.price_subtotal" t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'/>
+                                        <span t-field="l.price_subtotal"/>
                                     </td>
-                                    
-                                    <!-- FIXED: Sequence increment safely nested inside the true row condition -->
+                                    <!-- FIXED: Counter is now safely packaged inside conditional loop line element -->
                                     <t t-set="line_idx" t-value="line_idx + 1"/>
                                 </tr>
                             </t>
                         </tbody>
                     </table>
 
-                    <!-- Totals and Financial Breakdown Section -->
                     <div class="row justify-content-end mt24" name="total">
                         <div class="col-5">
                             <table class="table table-sm table-bordered" style="width: 100%; font-size: 13px; border: 1px solid #dee2e6 !important;">
@@ -229,19 +219,19 @@
                                     <tr style="background-color: #ffffff !important;">
                                         <td style="padding: 6px 8px; background-color: #ffffff !important; color: #333333 !important;"><strong>Tiền trước thuế</strong></td>
                                         <td class="text-right" style="padding: 6px 8px; background-color: #ffffff !important; color: #333333 !important;">
-                                            <span t-field="doc.amount_untaxed" t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'/>
+                                            <span t-field="doc.amount_untaxed"/>
                                         </td>
                                     </tr>
                                     <tr style="background-color: #ffffff !important;">
                                         <td style="padding: 6px 8px; background-color: #ffffff !important; color: #333333 !important;">Thuế GTGT</td>
                                         <td class="text-right" style="padding: 6px 8px; background-color: #ffffff !important; color: #333333 !important;">
-                                            <span t-field="doc.amount_tax" t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'/>
+                                            <span t-field="doc.amount_tax"/>
                                         </td>
                                     </tr>
                                     <tr style="background-color: #f8f9fa !important; font-weight: bold;">
                                         <td style="padding: 6px 8px; background-color: #f8f9fa !important; color: #000000 !important;"><strong>Tổng cộng</strong></td>
                                         <td class="text-right" style="padding: 6px 8px; background-color: #f8f9fa !important; color: #000000 !important;">
-                                            <span t-field="doc.amount_total" t-options='{"widget": "monetary", "display_currency": doc.pricelist_id.currency_id}'/>
+                                            <span t-field="doc.amount_total"/>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -249,7 +239,6 @@
                         </div>
                     </div>
                     
-                    <!-- Terms, Conditions, and Internal Notes -->
                     <div class="mt32" style="border-radius: 4px; padding: 12px; background-color: #fdfdfd; font-size: 12px; border: 1px solid #eee;">
                         <p t-if="doc.note" style="margin-bottom: 0;">
                             <strong>Ghi chú:</strong><br/>
