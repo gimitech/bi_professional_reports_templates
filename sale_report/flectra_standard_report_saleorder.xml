@@ -41,12 +41,11 @@
                             <h1 style="font-weight: bold; margin-top: 2px; margin-bottom: 2px; font-size: 24px; color: #333333;">BÁO GIÁ</h1>
                             <p style="font-size: 14px; color: #555;">Ref# <span t-field="doc.name"/></p>
                                 <div class="text-center my-2" style="padding-top: 5px;">
-    <!-- GENERATES BASE64 BINARY INTERNALLY: 100% Safe from URL routing errors -->
-    <img t-att-src="'data:image/png;base64,' + json.loads(doc.env['ir.actions.report'].barcode('QR', doc.name).decode('utf-8'))" 
-         style="width: 90px; height: 90px; display: block; margin: 0 auto;"/>
-    <small class="text-muted" style="font-size: 10px; margin-top: 4px; display: block;">Quét mã xem chi tiết</small>
-</div>
-
+                                <!-- FIXED: Uses the native framework image_data_uri handler to safely convert raw bytes -->
+                                    <img t-att-src="image_data_uri(doc.env['ir.actions.report'].barcode('Code128', doc.name))" 
+                                     style="width: 140px; height: 45px; display: block; margin: 0 auto;"/>
+                                    <small class="text-muted" style="font-size: 10px; margin-top: 2px; display: block;" t-field="doc.name"/>
+                                </div>
                         </div>
 
                         <!-- Customer information Section Panels -->                       
