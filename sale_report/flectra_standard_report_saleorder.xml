@@ -47,7 +47,7 @@
                         <div class="col-6" style="padding-right: 5px;">
                             <table class="table table-sm table-bordered" style="table-layout: fixed; width: 100%; border: 1px solid #dee2e6 !important;">
                                 <thead>
-                                   <tr style="background-color: #f8f9fa !important;"><th colspan="2" style="font-size: 12px; padding: 4px 8px; background-color: #f8f9fa !important; color: #333333 !important; text-align: center;"><br/></th></tr>                                                             
+                                   <tr style="background-color: #f8f9fa !important;"><th colspan="2" style="font-size: 12px; padding: 4px 8px; background-color: #f8f9fa !important; color: #333333 !important; text-align: center; border: 0 !important;"><br/></th></tr>                                                             
                                 </thead>
                                 <tbody style="background-color: #ffffff !important; color: #333333 !important;">
                                     <tr style="background-color: #ffffff !important;">
