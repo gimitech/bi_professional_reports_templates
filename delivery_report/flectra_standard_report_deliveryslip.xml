@@ -283,10 +283,11 @@
                                         <strong>Người Nhận Hàng</strong><br/>
                                         <small style="color: #888;">(Ký, ghi rõ họ tên)</small>
                                     </td>
-                                    <td style="padding: 4px 8px; text-align: center; background-color: #ffffff !important; border: 0 !important; width: 33%;"> 
+                                    <td style="padding: 4px 8px; text-align: center; background-color: #ffffff !important; border: 0 !important; width: 33%;color: #888;"> 
                                     </td>
-                                    <td style="padding: 4px 8px; text-align: center; background-color: #ffffff !important; border: 0 !important; width: 33%;">
-                                        <strong>Người Giao Hàng / Đại Diện</strong><br/>                                        
+                                    <td style="padding: 4px 8px; text-align: center; background-color: #ffffff !important; border: 0 !important; width: 33%; color: #888;">
+                                        <strong>Người Giao Hàng / Đại Diện</strong><br/>
+                                        <small style="color: #888;">(Ký, ghi rõ họ tên)</small>
                                     </td>
                                     <td style="padding: 4px 8px; text-align: center; background-color: #ffffff !important; border: 0 !important; width: 33%;"> 
                                     </td>
