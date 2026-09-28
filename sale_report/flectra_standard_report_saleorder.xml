@@ -38,7 +38,14 @@
                     <!-- Document Title and Customer Block -->
                     <div class="row mb32" style="margin-top: 0px; padding-top: 1px;">
                         <div class="col-6 text-center" style="text-align: center; font-size: 13px; padding-top: 15px;">
-                            <h1 style="font-weight: bold; margin-top: 2px; margin-bottom: 2px; font-size: 24px; color: #333333;">BÁO GIÁ</h1>
+                            <h1 style="font-weight: bold; margin-top: 2px; margin-bottom: 2px; font-size: 24px; color: #333333;">
+                            <!-- If the document is a Draft or Sent, display 'BÁO GIÁ' (Quotation) -->
+                            <t t-if="doc.state in ['draft', 'sent']">BÁO GIÁ</t>    
+                            <!-- If the document is Confirmed or Locked, display 'ĐƠN HÀNG' (Sale Order) -->
+                            <t t-if="doc.state in ['sale', 'done']">ĐƠN HÀNG</t>    
+                            <!-- Optional fallback for Cancelled status -->
+                            <t t-if="doc.state == 'cancel'">ĐƠN HÀNG ĐÃ HỦY</t>
+                            </h1>
                             <p style="font-size: 14px; color: #555;">Ref# <span t-field="doc.name"/></p>
                             <img t-att-src="'/report/barcode/?barcode_type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128', doc.name, 600, 100)" style="width: 300px; height: 25px;"/>
                         </div>
