@@ -235,7 +235,7 @@
                                     </td>
                                     <td style="padding: 4px 8px; text-align: center; background-color: #ffffff !important; border: 0 !important; width: 33%;">
                                         <!-- Shared Trackable System Portal QR Code configuration -->
-                                        <t t-set="share_url" t-value="'%s/my/picking/%s?access_token=%s' % (o.get_base_url(), o.id, o.access_token)"/>
+                                        <t t-set="share_url" t-value="'%s/my/order/%s?access_token=%s' % (o.get_base_url(), o.id, o.access_token)"/>
                                         <img t-att-src="'/report/barcode/QR/%s' % (share_url)" style="width:90px; height:90px; display: block; margin: 0 auto;" alt="System Portal QR"/>
                                     </td>
                                     <td style="padding: 4px 8px; text-align: center; background-color: #ffffff !important; border: 0 !important; width: 33%;">
