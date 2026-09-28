@@ -92,6 +92,13 @@
                                         <td style="padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><span t-field="o.user_id"/></td>
                                     </tr>
                                     <tr style="background-color: #ffffff !important;">
+                                        <td style="padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><strong>Nhân viên kinh doanh:</strong></td>
+                                        <td style="padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;">
+                                        <span t-if="sale_order and sale_order.user_id" t-field="sale_order.user_id.name"/>
+                                        <span t-else="" class="text-muted">Không có thông tin</span>
+                                        </td>
+                                    </tr>
+                                    <tr style="background-color: #ffffff !important;">
                                         <td style="padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><strong>Ngày in phiếu:</strong></td>
                                         <td style="padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;">
                                             <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%d/%m/%Y %H:%M:%S')"/>
