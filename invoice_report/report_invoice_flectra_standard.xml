@@ -153,7 +153,7 @@
                             <t t-foreach="o.invoice_line_ids" t-as="l">
                                 <tr t-if="not l.display_type" style="background-color: #ffffff !important;">
                                     <td class="text-center" style="vertical-align: middle;"><t t-esc="line_idx"/></td>
-                                    <td style="vertical-align: middle;"><span t-field="l.name"/></td>
+                                    <td style="vertical-align: middle;"><span t-field="l.product_id"/></td>
                                     <td class="text-center" style="vertical-align: middle;">
                                         <span t-field="l.quantity"/> <span t-field="l.uom_id" groups="product.group_uom"/>
                                     </td>
