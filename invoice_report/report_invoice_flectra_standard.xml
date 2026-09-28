@@ -150,7 +150,7 @@
                         </thead>
                         <tbody class="invoice_tbody" style="font-size: 12px; background-color: #ffffff !important;">
                             <t t-set="line_idx" t-value="1"/>
-                            <t t-foreach="valid_lines" t-as="l">
+                            <t t-foreach="o.invoice_line_ids" t-as="l">
                                 <tr t-if="not l.display_type" style="background-color: #ffffff !important;">
                                     <td class="text-center" style="vertical-align: middle;"><t t-esc="line_idx"/></td>
                                     <td style="vertical-align: middle;"><span t-field="l.name"/></td>
