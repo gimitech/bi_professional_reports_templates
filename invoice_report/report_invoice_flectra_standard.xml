@@ -128,8 +128,7 @@
                             </table>
                         </div>
                     </div>
-
-                  <!-- Is there a discount on at least one line? -->
+                    <!-- Is there a discount on at least one line? -->
                     <t t-set="display_discount" t-value="any([l.discount for l in o.invoice_line_ids])"/>
 
                     <!-- Main Lines Items Table Grid -->
@@ -141,38 +140,41 @@
                                 <th style="width: 54%; text-align: center; vertical-align: middle; background-color: #f8f9fa !important; color: #333333 !important;">MÔ TẢ SẢN PHẨM / DỊCH VỤ</th>
                                 <th style="width: 8%; text-align: center; vertical-align: middle; background-color: #f8f9fa !important; color: #333333 !important;">SL</th>
                                 <th style="width: 11%; text-align: center; vertical-align: middle; background-color: #f8f9fa !important; color: #333333 !important;">ĐƠN GIÁ</th>
-                                <th t-if="display_discount" style="width: 7%; text-align: center; vertical-align: middle; background-color: #f8f9fa !important; color: #333333 !important;" groups="product.group_discount_per_so_line">CK (%)</th>
-                                <th style="width: 9%; text-align: center; vertical-align: middle; background-color: #f8f9fa !important; color: #333333 !important;">THUẾ</th>
-                                <th style="width: 12%; text-align: center; vertical-align: middle; background-color: #f8f9fa !important; color: #333333 !important;">THÀNH TIỀN</th>
+                                <th t-if="display_discount" style="width: 8%; text-align: center; vertical-align: middle; background-color: #f8f9fa !important; color: #333333 !important;" groups="sale.group_discount_per_so_line">CK (%)</th>
+                                <th style="width: 10%; text-align: center; vertical-align: middle; background-color: #f8f9fa !important; color: #333333 !important;">THUẾ</th>
+                                <th style="width: 11%; text-align: center; vertical-align: middle; background-color: #f8f9fa !important; color: #333333 !important;">THÀNH TIỀN</th>
                             </tr>
                         </thead>
                         <tbody class="invoice_tbody" style="font-size: 12px; background-color: #ffffff !important;">
                             <t t-set="line_idx" t-value="1"/>
-                            <tr t-foreach="o.invoice_line_ids" t-as="l" style="background-color: #ffffff !important;">
-                                <t t-if="not l.display_type">
+                            <t t-foreach="o.invoice_line_ids" t-as="l">
+                                <tr t-if="not l.display_type" style="background-color: #ffffff !important;">
                                     <td class="text-center" style="vertical-align: middle;"><t t-esc="line_idx"/></td>
                                     <td style="vertical-align: middle;"><span t-field="l.name"/></td>
                                     <td class="text-center" style="vertical-align: middle;">
-                                        <span t-field="l.quantity"/>
-                                        <span t-field="l.uom_id" groups="product.group_uom"/>
+                                        <span t-field="l.quantity"/> <span t-field="l.uom_id" groups="product.group_uom"/>
                                     </td>
                                     <td class="text-right" style="vertical-align: middle;"><span t-field="l.price_unit"/></td>
-                                    <td t-if="display_discount" class="text-right" style="vertical-align: middle;" groups="product.group_discount_per_so_line">
+                                    <td t-if="display_discount" class="text-right" style="vertical-align: middle;" groups="sale.group_discount_per_so_line">
                                         <span t-field="l.discount"/>
                                     </td>
                                     <td class="text-center" style="vertical-align: middle;">
-                                        <span t-field="l.tax_ids"/>
+                                        <!-- CRITICAL WORKING FIX: Using safe, primitive dynamic template iteration loop syntax -->
+                                        <!-- This avoids engine sandboxing blocks against mapping string functions and maps -->
+                                        <t t-foreach="l.tax_ids" t-as="tax">
+                                            <span t-field="tax.description" t-if="tax.description"/>
+                                            <span t-field="tax.name" t-if="not tax.description"/>
+                                            <span t-if="not tax_last">, </span>
+                                        </t>
                                     </td>
                                     <td class="text-right" style="vertical-align: middle;">
                                         <span t-field="l.price_subtotal" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
                                     </td>
                                     <t t-set="line_idx" t-value="line_idx + 1"/>
-                                </t>
-                            </tr>
+                                </tr>
+                            </t>
                         </tbody>
                     </table>
-
-
                     <!-- Totals and Financial Breakdown Section -->
                     <div class="row justify-content-end mt24" name="total">
                         <div class="col-6" style="padding-right: 70px;">
