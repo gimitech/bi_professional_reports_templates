@@ -137,6 +137,7 @@
                     <t t-else="">
                         <span class="text-muted">Chưa tạo hóa đơn</span>
                     </t>
+                        </t>
                 </td>
             </tr>
         </tbody>
