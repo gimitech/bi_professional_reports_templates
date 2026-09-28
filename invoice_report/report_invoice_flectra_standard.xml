@@ -131,7 +131,7 @@
                     <!-- Is there a discount on at least one line? -->
                     <t t-set="display_discount" t-value="any([l.discount for l in o.invoice_line_ids])"/>
 
-                    <!-- Main Lines Items Table Grid formatted into company structure layout -->
+                    <!-- Main Lines Items Table Grid -->
                     <p style="font-weight: bold; margin-bottom: 6px; font-size: 12px; color: #555;">Chi Tiết Thanh Toán</p>
                     <table class="table table-sm table-bordered" style="table-layout: fixed; width: 100%; border: 1px solid #dee2e6 !important;">
                         <thead>                           
@@ -159,7 +159,6 @@
                                         <span t-field="l.discount"/>
                                     </td>
                                     <td class="text-center" style="vertical-align: middle;">
-                                        <!-- CRITICAL WORKING FIX: Using safe loop iteration context for nested structures -->
                                         <t t-foreach="l.tax_ids" t-as="tax">
                                             <span t-field="tax.description" t-if="tax.description"/>
                                             <span t-field="tax.name" t-if="not tax.description"/>
@@ -174,7 +173,6 @@
                             </t>
                         </tbody>
                     </table>
-
                     <!-- Totals and Financial Breakdown Section -->
                     <div class="row justify-content-end mt24" name="total">
                         <div class="col-6" style="padding-right: 70px;">
