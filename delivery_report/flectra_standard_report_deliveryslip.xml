@@ -2,253 +2,260 @@
 <flectra>
     <data>
         <template id="flectra_std_report_deliveryslip_document">
+            <!-- Setup Company Context Safely -->
             <t t-if="o and 'company_id' in o">
-                <t t-set="company" t-value="o.company_id"></t>
+                <t t-set="company" t-value="o.company_id"/>
             </t>
-            <t t-if="not o or not 'company_id' in o">
-                <t t-set="company" t-value="res_company"></t>
+            <t t-if="not o or 'company_id' not in o">
+                <t t-set="company" t-value="res_company"/>
             </t>
-            <div class="header">
-                <div class="row mt32 mb32">
-                    <div class="col-6">
-                        <img t-if="company.logo" t-att-src="image_data_uri(company.logo)"
-                             style="max-height: 80px;"/>
-                    </div>
-                    <div class="col-6 text-right"
-                         style="font:16px lucida-console,sans-serif !important; text-align: right;">
-                        <span t-field="company.partner_id"/>
-                        <br/>
-                        <span t-if="company.partner_id.street">
-                            <span t-if="company.partner_id.street" t-field="company.partner_id.street"/>
-                        </span>
-                        <br/>
-                        <span t-if="company.partner_id.street2">
-                            <span t-field="company.partner_id.street2"/>
-                            <br/>
-                        </span>
 
+            <!-- Document Header Section (Matched to Quotation layout) -->
+            <div class="header" style="margin-bottom: 0px; padding-bottom: 0px;">
+                <div class="row mt32 mb16">
+                    <div class="col-6">
+                        <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="max-height: 80px;"/>
+                    </div>
+                    <div class="col-6 text-left" style="font:14px sans-serif !important; text-align: center;">
+                        <strong t-field="company.partner_id"/><br/>
+                        <span t-if="company.partner_id.street" t-field="company.partner_id.street"/><br/>
+                        <span t-if="company.partner_id.street2" t-field="company.partner_id.street2"/><br/>
                         <span t-if="company.partner_id.city" t-field="company.partner_id.city"/>
-                        <br/>
-                        <span t-if="company.partner_id.country_id" t-field="company.partner_id.country_id"/>
-                        <br/>
-                        <span t-if="company.partner_id.vat" t-field="company.partner_id.vat"/>
-                        <br/>
+                        <span t-if="company.partner_id.country_id"> <span t-field="company.partner_id.country_id.name"/></span><br/>
+                        <span t-if="company.partner_id.vat">MST: <span t-field="company.partner_id.vat"/></span>
                     </div>
                 </div>
+                <div style="border-top: 1px solid #777777; margin-top: 5px; margin-bottom: 1px; padding: 0;"/>
             </div>
 
+            <!-- Main Layout Context -->
             <t t-call="web.external_layout">
                 <t t-set="o" t-value="o.with_context({'lang':o.partner_id.lang})"/>
-                <div class="page">
+                <div class="page" style="font-family: sans-serif; font-size: 13px; margin-top: -55px !important;">
                     <div class="oe_structure"/>
-                    <div class="row">
-                        <div class="col-6" style="font:15px lucida-console,sans-serif !important;">
-                            <strong>
-                                <span t-attf-style="color:#{company.color_stock}; !important;">Customer Address</span>
-                            </strong>
-                            <br/>
-                            <span t-field="o.partner_id"/>
-                            <br/>
-                            <span t-field="o.partner_id.street"/>
-                            <br/>
-                            <t t-if="o.partner_id.street2">
-                                <span t-field="o.partner_id.street2"/>
-                                <br/>
-                            </t>
-                            <span t-field="o.partner_id.city"/>
-                            <br/>
-                            <span t-field="o.partner_id.state_id"/>
-                            <br/>
-                            <span t-field="o.partner_id.country_id"/>
-                            <br/>
-                            <span t-field="o.partner_id.vat"/>
-                            <br/>
+                    
+                    <!-- Document Title and Customer Block -->
+                    <div class="row mb32" style="margin-top: 0px; padding-top: 1px;">
+                        <div class="col-6 text-center" style="text-align: center; font-size: 13px; padding-top: 15px;">
+                            <h1 style="font-weight: bold; margin-top: 2px; margin-bottom: 2px; font-size: 24px; color: #333333;">PHIẾU GIAO HÀNG</h1>
+                            <p style="font-size: 14px; color: #555;">Ref# <span t-field="o.name"/></p>
+                            <img t-att-src="'/report/barcode/?barcode_type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128', o.name, 600, 100)" style="width: 300px; height: 25px;"/>
                         </div>
 
-                        <div class="col-6 text-right"
-                             style="font:15px lucida-console,sans-serif !important;text-align: right;  ">
-                            <strong>
-                                <span t-attf-style="color:#{company.color_stock}; !important; ">Delivery Address</span>
-                            </strong>
-                            <div t-if="o.move_ids and o.move_ids[0].partner_id and o.move_ids[0].partner_id.id != o.partner_id.id">
-                                <div>
-                                    <div t-field="o.move_ids[0].partner_id"
-                                         t-options='{"widget": "contact", "fields": ["address", "name", "phone", "fax"], "no_marker": true}'/>
-                                    <div t-field="o.move_ids[0].partner_id.street"/>
-                                    <t t-if="o.move_ids[0].partner_id.street2">
-                                        <span t-field="o.move_ids[0].partner_id.street2"/>
-                                        <br/>
-                                    </t>
-                                    <span t-field="o.move_ids[0].partner_id.city"/>
-                                    <br/>
-                                    <span t-field="o.move_ids[0].partner_id.country_id"/>
-                                    <br/>
-                                    <span t-field="o.move_ids[0].partner_id.zip"/>
-                                    <br/>
-                                    <div t-field="o.move_ids[0].partner_id.vat"/>
-                                </div>
-                            </div>
-                            <div t-if="(o.move_ids and o.move_ids[0].partner_id and o.move_ids[0].partner_id.id == o.partner_id.id) or o.move_ids and not o.move_ids[0].partner_id">
-                                <span t-field="o.partner_id"/>
-                                <br/>
-                                <span t-field="o.partner_id.street"/>
-                                <br/>
-                                <t t-if="o.partner_id.street2">
-                                    <span t-field="o.partner_id.street2"/>
-                                    <br/>
-                                </t>
-                                <span t-field="o.partner_id.city"/>
-                                <br/>
-                                <span t-field="o.partner_id.state_id"/>
-                                <br/>
-                                <span t-field="o.partner_id.country_id"/>
-                                <br/>
-                                <span t-field="o.partner_id.vat"/>
-                                <br/>
-                            </div>
+                        <!-- Customer information Section Panels -->                       
+                        <div class="col-6" style="padding-right: 5px;">
+                            <table class="table table-sm table-bordered" style="table-layout: fixed; width: 100%; border: 1px solid #dee2e6 !important;">
+                                <thead>
+                                   <tr style="background-color: #f8f9fa !important;"><th colspan="2" style="font-size: 12px; padding: 4px 8px; background-color: #f8f9fa !important; color: #333333 !important; text-align: center; border: 0 !important; border-bottom: 0 !important;"><br/></th></tr>                                                             
+                                </thead>
+                                <tbody style="background-color: #ffffff !important; color: #333333 !important;">
+                                    <tr style="background-color: #ffffff !important;">
+                                        <td style="width: 40%; padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><strong>Khách hàng</strong></td>
+                                        <td style="width: 60%; padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><span t-field="o.partner_id.name"/></td>
+                                    </tr>
+                                    <tr style="background-color: #ffffff !important;">
+                                        <td style="padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><strong>Địa chỉ:</strong></td>
+                                        <td style="padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;">
+                                            <span t-if="o.partner_id.street" t-field="o.partner_id.street"/> 
+                                            <span t-if="o.partner_id.street2" t-field="o.partner_id.street2"/> 
+                                            <span t-if="o.partner_id.city" t-field="o.partner_id.city"/> 
+                                            <span t-if="o.partner_id.country_id"> <span t-field="o.partner_id.country_id.name"/></span><br/>
+                                        </td>
+                                    </tr>
+                                    <tr style="background-color: #ffffff !important;">
+                                        <td style="padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><strong>Số ĐT:</strong></td>
+                                        <td style="padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><span t-field="o.partner_id.phone"/></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>                      
+                    </div>
+
+                    <!-- Information & Status Meta Blocks -->
+                    <div class="row mb16">
+                        <div class="col-6" style="padding-right: 5px;">
+                            <table class="table table-sm table-bordered" style="table-layout: fixed; width: 100%; border: 1px solid #dee2e6 !important;">
+                                <thead style="background-color: #f8f9fa !important;">
+                                    <tr style="background-color: #f8f9fa !important;"><th colspan="2" style="font-size: 12px; padding: 4px 8px; background-color: #f8f9fa !important; color: #333333 !important; text-align: center;">THÔNG TIN ĐƠN HÀNG</th></tr>
+                                </thead>
+                                <tbody style="background-color: #ffffff !important; color: #333333 !important;">
+                                    <tr style="background-color: #ffffff !important;">
+                                        <td style="width: 40%; padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><strong>Số Phiếu GH:</strong></td>
+                                        <td style="width: 60%; padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><span t-field="o.name"/></td>
+                                    </tr>
+                                    <tr style="background-color: #ffffff !important;">
+                                        <td style="padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><strong>Ngày lên lịch:</strong></td>
+                                        <td style="padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><span t-field="o.scheduled_date" t-options='{"widget": "date"}'/></td>
+                                    </tr>
+                                    <tr style="background-color: #ffffff !important;">
+                                        <td style="padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><strong>Người phụ trách:</strong></td>
+                                        <td style="padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><span t-field="o.user_id"/></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-6" style="padding-left: 5px;">
+                            <table class="table table-sm table-bordered" style="table-layout: fixed; width: 100%; border: 1px solid #dee2e6 !important;">
+                                <thead style="background-color: #f8f9fa !important;">
+                                    <tr style="background-color: #f8f9fa !important;"><th colspan="2" style="font-size: 12px; padding: 4px 8px; background-color: #f8f9fa !important; color: #333333 !important; text-align: center;">TRẠNG THÁI &amp; NGUỒN</th></tr>
+                                </thead>
+                                <tbody style="background-color: #ffffff !important; color: #333333 !important;">
+                                    <tr style="background-color: #ffffff !important;">
+                                        <td style="width: 40%; padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><strong>Tài liệu gốc:</strong></td>
+                                        <td style="width: 60%; padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><span t-field="o.origin"/></td>
+                                    </tr>
+                                    <tr style="background-color: #ffffff !important;">
+                                        <td style="padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><strong>Kiểu giao nhận:</strong></td>
+                                        <td style="padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><span t-field="o.picking_type_id.name"/></td>
+                                    </tr>
+                                    <tr style="background-color: #ffffff !important;">
+                                        <td style="padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><strong>Trạng thái:</strong></td>
+                                        <td style="padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><span t-field="o.state"/></td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
 
-                    <div class="row">
-                        <div class="col-4"/>
-                        <div class="col-8 text-right"
-                             t-attf-style="font:15px lucida-console,sans-serif !important; background-color:#{company.color_stock}; !important;  ">
-                            <h2>
-                                <span>
-                                    <font t-attf-style="color:#{company.text_color_stock}; !important;padding-left: 20px;">Delivery Note
-                                        #
-                                    </font>
-                                    <span t-attf-style="color:#{company.text_color_stock}; !important;"
-                                          t-field="o.name"/>
-                                </span>
-                                <br/>
-                            </h2>
-                            <div>
-                                <div class="col-5 text-left">
-                                    <div>
-                                        <font t-attf-style="color:#{company.text_color_stock}; !important;padding-left: 20px;">Origin:
-                                        </font>
-                                    </div>
-                                    <div t-attf-style="color:#{company.text_color_stock}; !important; padding-left: 20px;"
-                                         t-field="o.picking_type_id"/>
-                                </div>
-                                <div class="col-3 text-left">
-                                    <div>
-                                        <font t-attf-style="color:#{company.text_color_stock}; !important;padding-left: 20px;">Scheduled
-                                            Date:
-                                        </font>
-                                    </div>
-                                    <div t-attf-style="color:#{company.text_color_stock}; !important; padding-left: 20px;"
-                                         t-field="o.scheduled_date"/>
-                                </div>
-                            </div>
+                    <div class="row mb32">
+                        <div class="col-12">
+                            <table class="table table-sm table-bordered" style="table-layout: fixed; width: 100%; border: 1px solid #dee2e6 !important;">
+                                <thead style="background-color: #f8f9fa !important;">
+                                    <tr style="background-color: #f8f9fa !important;"><th colspan="2" style="font-size: 12px; padding: 4px 8px; background-color: #f8f9fa !important; color: #333333 !important; text-align: center;">ĐỊA CHỈ GIAO HÀNG (DELIVERY ADDRESS)</th></tr>
+                                </thead>
+                                <tbody style="background-color: #ffffff !important; color: #333333 !important;">
+                                    <tr style="background-color: #ffffff !important;">
+                                        <td style="padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important; width: 20%;"><strong>Địa chỉ nhận:</strong></td>
+                                        <td style="padding: 4px 8px; min-height: 60px; background-color: #ffffff !important; color: #333333 !important;">
+                                            <!-- Delivery Address Logic Processed safely -->
+                                            <div t-if="o.move_ids and o.move_ids.partner_id and o.move_ids.partner_id.id != o.partner_id.id">
+                                                <span t-field="o.move_ids.partner_id.name"/><br/>
+                                                <span t-field="o.move_ids.partner_id.street"/>
+                                                <span t-if="o.move_ids.partner_id.street2"> <span t-field="o.move_ids.partner_id.street2"/></span>
+                                                <span t-if="o.move_ids.partner_id.city"> <span t-field="o.move_ids.partner_id.city"/></span>
+                                                <span t-if="o.move_ids.partner_id.country_id"> <span t-field="o.move_ids.partner_id.country_id.name"/></span>
+                                            </div>
+                                            <div t-else="">
+                                                <span t-field="o.partner_id.name"/><br/>
+                                                <span t-field="o.partner_id.street"/>
+                                                <span t-if="o.partner_id.street2"> <span t-field="o.partner_id.street2"/></span>
+                                                <span t-if="o.partner_id.city"> <span t-field="o.partner_id.city"/></span>
+                                                <span t-if="o.partner_id.country_id"> <span t-field="o.partner_id.country_id.name"/></span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr style="background-color: #ffffff !important;">
+                                        <td style="padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><strong>Số ĐT liên hệ:</strong></td>
+                                        <td style="padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><span t-field="o.partner_id.phone"/></td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
-                    <br/>
-                    <br/>
 
-
-                    <table class="table table-sm table-borderless" style="padding-top=50px; padding-bottom=50px;"
-                           t-if="not o.move_line_ids">
-                        <thead>
-                            <tr>
-                                <th t-attf-style="background-color:#{company.color_stock}; !important;color:#{company.text_color_stock}; !important;">
-                                    Product
-                                </th>
-                                <th t-attf-style="background-color:#{company.color_stock}; !important;color:#{company.text_color_stock}; !important;">
-                                    Ordered
-                                    Quantity
-                                </th>
+                    <p style="font-weight: bold; margin-bottom: 6px; font-size: 12px; color: #555;">Chi Tiết Giao Hàng</p>
+                    
+                    <table class="table table-sm table-bordered" style="table-layout: fixed; width: 100%; border: 1px solid #dee2e6 !important;" t-if="not o.move_line_ids">
+                        <thead>                           
+                            <tr style="background-color: #f8f9fa !important; color: #333333 !important; font-size: 11px;">
+                                <th style="width: 10%; text-align: center; vertical-align: middle; background-color: #f8f9fa !important; color: #333333 !important;">STT</th>
+                                <th style="width: 25%; text-align: center; vertical-align: middle; background-color: #f8f9fa !important; color: #333333 !important;">MÃ SẢN PHẨM</th>
+                                <th style="width: 45%; text-align: center; vertical-align: middle; background-color: #f8f9fa !important; color: #333333 !important;">MÔ TẢ SẢN PHẨM</th>
+                                <th style="width: 20%; text-align: center; vertical-align: middle; background-color: #f8f9fa !important; color: #333333 !important;">SL ĐẶT HÀNG</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr t-foreach="o.move_ids" t-as="move">
-                                <td class="text-center">
-                                    <span t-field="move.product_id"/>
+                        <tbody style="font-size: 12px; background-color: #ffffff !important;">
+                            <t t-set="line_idx" t-value="1"/>
+                            <tr t-foreach="o.move_ids" t-as="move" style="background-color: #ffffff !important;">
+                                <td class="text-center" style="vertical-align: middle;"><t t-esc="line_idx"/></td>
+                                <td style="vertical-align: middle;"><span t-field="move.product_id.default_code"/></td>
+                                <td style="vertical-align: middle;"><span t-field="move.product_id.display_name"/></td>
+                                <td class="text-center" style="vertical-align: middle;">
+                                    <span t-field="move.product_uom_qty"/> <span t-field="move.product_uom"/>
                                 </td>
-                                <td class="text-center">
-                                    <span t-field="move.product_uom_qty"/>
-                                    <span t-field="move.product_uom"/>
-                                </td>
+                                <t t-set="line_idx" t-value="line_idx + 1"/>
                             </tr>
                         </tbody>
                     </table>
-                    <table class="table table-sm table-borderless" style="padding-top=50px;" t-if="o.move_line_ids">
-                        <t t-set="has_serial_number" t-value="o.move_line_ids.mapped('lot_id')"
-                           groups="stock.group_production_lot"/>
-                        <thead>
-                            <tr>
-                                <th t-attf-style="background-color:#{company.color_stock}; !important;color:#{company.text_color_stock}; !important;">
-                                    Product
-                                </th>
-                                <th t-attf-style="background-color:#{company.color_stock}; !important;color:#{company.text_color_stock}; !important;"
-                                    name="lot_serial"
-                                    t-if="has_serial_number">
-                                    Lot/Serial Number
-                                </th>
-                                <th t-attf-style="background-color:#{company.color_stock}; !important;color:#{company.text_color_stock}; !important;">
-                                    Ordered
-                                    Quantity
-                                </th>
-                                <th t-if="any([move_line.state == 'done' for move_line in o.move_line_ids])"
-                                    t-attf-style="background-color:#{company.color_stock}; !important;color:#{company.text_color_stock}; !important;">
-                                    Delivered Quantity
-                                </th>
+
+                    <table class="table table-sm table-bordered" style="table-layout: fixed; width: 100%; border: 1px solid #dee2e6 !important;" t-if="o.move_line_ids">
+                        <t t-set="has_serial_number" t-value="o.move_line_ids.mapped('lot_id')" groups="stock.group_production_lot"/>
+                        <thead>                           
+                            <tr style="background-color: #f8f9fa !important; color: #333333 !important; font-size: 11px;">
+                                <th style="width: 6%; text-align: center; vertical-align: middle; background-color: #f8f9fa !important; color: #333333 !important;">STT</th>
+                                <th style="width: 19%; text-align: center; vertical-align: middle; background-color: #f8f9fa !important; color: #333333 !important;">MÃ SẢN PHẨM</th>
+                                <th style="width: 35%; text-align: center; vertical-align: middle; background-color: #f8f9fa !important; color: #333333 !important;">MÔ TẢ SẢN PHẨM</th>
+                                <th t-if="has_serial_number" style="width: 15%; text-align: center; vertical-align: middle; background-color: #f8f9fa !important; color: #333333 !important;">SỐ LÔ/SERIAL</th>
+                                <th style="width: 12%; text-align: center; vertical-align: middle; background-color: #f8f9fa !important; color: #333333 !important;">SL YÊU CẦU</th>
+                                <th t-if="any([move_line.state == 'done' for move_line in o.move_line_ids])" style="width: 13%; text-align: center; vertical-align: middle; background-color: #f8f9fa !important; color: #333333 !important;">SL THỰC GIAO</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr t-foreach="o.move_line_ids" t-as="move_line">
-                                <td class="text-center">
-                                    <span t-field="move_line.product_id"/>
-                                    <p t-if="o.picking_type_code == 'outgoing'">
-                                        <span t-field="move_line.product_id.description_pickingout"/>
-                                    </p>
-                                    <p t-if="o.picking_type_code == 'incoming'">
-                                        <span t-field="move_line.product_id.description_pickingin"/>
-                                    </p>
-                                    <t t-if="not move_line.product_id and move_line.package_id">
-                                        <span t-field="move_line.package_id"/>
-                                    </t>
+                        <tbody style="font-size: 12px; background-color: #ffffff !important;">
+                            <t t-set="line_idx" t-value="1"/>
+                            <tr t-foreach="o.move_line_ids" t-as="move_line" style="background-color: #ffffff !important;">
+                                <td class="text-center" style="vertical-align: middle;"><t t-esc="line_idx"/></td>
+                                <td style="vertical-align: middle;"><span t-field="move_line.product_id.default_code"/></td>
+                                <td style="vertical-align: middle;">
+                                    <span t-field="move_line.product_id.display_name"/>
+                                    <p t-if="o.picking_type_code == 'outgoing'"><small t-field="move_line.product_id.description_pickingout"/></p>
+                                    <p t-if="o.picking_type_code == 'incoming'"><small t-field="move_line.product_id.description_pickingin"/></p>
                                 </td>
-                                <t t-if="has_serial_number">
-                                    <td class="text-center">
-                                        <table width="100%">
-                                            <tr>
-                                                <td class="text-center">
-                                                    <span t-field="move_line.lot_id"/>
-                                                    <t t-if="not move_line.lot_id">
-                                                        <span t-field="move_line.lot_name"/>
-                                                    </t>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </t>
-                                <td class="text-center">
-                                    <span t-field="move_line.package_id"/>
-                                    <span t-if="move_line.package_id">:</span>
-                                    <span t-field="move_line.quantity_product_uom"/>
-                                    <span t-field="move_line.product_uom_id"/>
+                                <td t-if="has_serial_number" class="text-center" style="vertical-align: middle;">
+                                    <span t-field="move_line.lot_id"/>
+                                    <t t-if="not move_line.lot_id"><span t-field="move_line.lot_name"/></t>
                                 </td>
-                                <td class="text-center" t-if="move_line.state == 'done'">
+                                <td class="text-center" style="vertical-align: middle;">
+                                    <span t-field="move_line.quantity_product_uom"/> <span t-field="move_line.product_uom_id"/>
+                                </td>
+                                <td class="text-center" t-if="move_line.state == 'done'" style="vertical-align: middle; font-weight: bold; color: #000;">
                                     <t t-if="move_line.quantity_product_uom != move_line.quantity">
                                         <t t-set="backorder" t-value="True"/>
                                     </t>
-                                    <span t-field="move_line.quantity"/>
-                                    <span t-field="move_line.product_uom_id"/>
+                                    <span t-field="move_line.quantity"/> <span t-field="move_line.product_uom_id"/>
                                 </td>
+                                <t t-set="line_idx" t-value="line_idx + 1"/>
                             </tr>
                         </tbody>
                     </table>
-                    <p t-if="o.backorder_id">
-                        This shipment is a backorder of<t t-esc="o.backorder_id.name"/>.
-                    </p>
-                    <p>
-                        <t t-if="backorder">
-                            All items couldn't be shipped, the remaining ones will be shipped as soon as they become
-                            available.
-                        </t>
-                    </p>
+
+                    <div t-if="o.backorder_id" class="alert alert-warning mt16" style="padding: 8px; font-size: 12px;">
+                        Lô hàng này là đơn dở dang (backorder) của thông tin gốc: <t t-esc="o.backorder_id.name"/>.
+                    </div>
+                    <div t-if="backorder" class="alert alert-info mt16" style="padding: 8px; font-size: 12px;">
+                        Một số mặt hàng không thể giao hết hoàn toàn; phần còn lại sẽ được giao ngay khi có sẵn hàng.
+                    </div>
+
+                    <div class="row justify-content-end mt24">
+                        <div class="col-12">
+                            <table class="table table-sm table-bordered" style="table-layout: fixed; width: 100%; border: 0px solid #ffffff !important;">   
+                                <tr style="background-color: #ffffff !important; border: 0 !important;">
+                                    <td style="padding: 4px 8px; text-align: center; background-color: #ffffff !important; border: 0 !important; width: 33%;">
+                                        <strong>Người Nhận Hàng</strong><br/>
+                                        <small style="color: #888;">(Ký, ghi rõ họ tên)</small>
+                                    </td>
+                                    <td style="padding: 4px 8px; text-align: center; background-color: #ffffff !important; border: 0 !important; width: 33%;">
+                                        <!-- Shared Trackable System Portal QR Code configuration -->
+                                        <t t-set="share_url" t-value="'%s/my/picking/%s?access_token=%s' % (o.get_base_url(), o.id, o.access_token)"/>
+                                        <img t-att-src="'/report/barcode/QR/%s' % (share_url)" style="width:90px; height:90px; display: block; margin: 0 auto;" alt="System Portal QR"/>
+                                    </td>
+                                    <td style="padding: 4px 8px; text-align: center; background-color: #ffffff !important; border: 0 !important; width: 33%;">
+                                        <strong>Người Giao Hàng / Đại Diện</strong><br/>
+                                        <img src="https://gimitec.com/mag/image/0938141821.png" style="width:90px; height:90px; display: inline-block; margin-top: 5px;"/><br/>
+                                    </td>
+                                </tr>  
+                            </table>
+                        </div>  
+                    </div>
+
+                    <div class="mt32" style="border-radius: 4px; padding: 12px; background-color: #fdfdfd; font-size: 12px; border: 1px solid #eee;">
+                        <p style="margin-bottom: 0;">
+                            <strong>Ghi chú đơn hàng:</strong><br/>
+                            <span t-if="o.note" t-field="o.note"/>
+                            <span t-else="">Hàng hóa giao đi đầy đủ phụ kiện kèm theo và nguyên đai kiện tiêu chuẩn nhà sản xuất.</span>
+                        </p>
+                    </div>
+
+                    <div class="oe_structure"/>
                 </div>
             </t>
         </template>
