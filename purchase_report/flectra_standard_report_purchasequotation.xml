@@ -34,9 +34,9 @@
                 <div class="page" style="font-family: sans-serif; font-size: 13px; margin-top: -55px !important;">
                     <div class="oe_structure"/>
                     
-                    <!-- Document Title and Vendor Block -->
+                    <!-- Document Title Block -->
                     <div class="row mb32" style="margin-top: 0px; padding-top: 1px;">
-                        <div class="col-6 text-center" style="text-align: center; font-size: 13px; padding-top: 15px;">
+                        <div class="col-12 text-center" style="text-align: center; font-size: 13px; padding-top: 15px; margin-bottom: 15px;">
                             <h1 style="font-weight: bold; margin-top: 2px; margin-bottom: 2px; font-size: 24px; color: #333333;">
                                 <t t-if="o.state == 'cancel'">YÊU CẦU BÁO GIÁ ĐÃ HỦY</t>
                                 <t t-if="o.state != 'cancel'">YÊU CẦU BÁO GIÁ</t>
@@ -48,13 +48,13 @@
                         <!-- Vendor Information Section Panel -->                       
                         <div class="col-6" style="padding-right: 5px;">
                             <table class="table table-sm table-bordered" style="table-layout: fixed; width: 100%; border: 1px solid #dee2e6 !important;">
-                                <thead>
-                                   <tr style="background-color: #f8f9fa !important;"><th colspan="2" style="font-size: 12px; padding: 4px 8px; background-color: #f8f9fa !important; color: #333333 !important; text-align: center; border: 0 !important; border-bottom: 0 !important;"><br/></th></tr>                                                             
+                                <thead style="background-color: #f8f9fa !important;">
+                                   <tr style="background-color: #f8f9fa !important;"><th colspan="2" style="font-size: 12px; padding: 4px 8px; background-color: #f8f9fa !important; color: #333333 !important; text-align: center;">NHÀ CUNG CẤP (BÊN B)</th></tr>                                                             
                                 </thead>
                                 <tbody style="background-color: #ffffff !important; color: #333333 !important;">
                                     <tr style="background-color: #ffffff !important;">
-                                        <td style="width: 40%; padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><strong>Nhà cung cấp</strong></td>
-                                        <td style="width: 60%; padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><span t-field="o.partner_id.name"/></td>
+                                        <td style="width: 35%; padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><strong>Đơn vị:</strong></td>
+                                        <td style="width: 65%; padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><span t-field="o.partner_id.name"/></td>
                                     </tr>
                                     <tr style="background-color: #ffffff !important;">
                                         <td style="padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><strong>Địa chỉ:</strong></td>
@@ -62,12 +62,46 @@
                                             <span t-if="o.partner_id.street" t-field="o.partner_id.street"/> 
                                             <span t-if="o.partner_id.street2" t-field="o.partner_id.street2"/> 
                                             <span t-if="o.partner_id.city" t-field="o.partner_id.city"/> 
-                                            <span t-if="o.partner_id.country_id"> <span t-field="o.partner_id.country_id.name"/></span><br/>
+                                            <span t-if="o.partner_id.country_id"> <span t-field="o.partner_id.country_id.name"/></span>
                                         </td>
                                     </tr>
                                     <tr style="background-color: #ffffff !important;">
                                         <td style="padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><strong>Số ĐT:</strong></td>
                                         <td style="padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><span t-field="o.partner_id.phone"/></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- Delivery Location Section Panel (Địa điểm giao hàng Bên A) -->                       
+                        <div class="col-6" style="padding-left: 5px;">
+                            <table class="table table-sm table-bordered" style="table-layout: fixed; width: 100%; border: 1px solid #dee2e6 !important;">
+                                <thead style="background-color: #f8f9fa !important;">
+                                   <tr style="background-color: #f8f9fa !important;"><th colspan="2" style="font-size: 12px; padding: 4px 8px; background-color: #f8f9fa !important; color: #333333 !important; text-align: center;">ĐỊA ĐIỂM GIAO HÀNG (BÊN A)</th></tr>                                                             
+                                </thead>
+                                <tbody style="background-color: #ffffff !important; color: #333333 !important;">
+                                    <!-- Fallback structural check for specific drop shipping or default corporate warehouse setup -->
+                                    <t t-set="delivery_addr" t-value="o.dest_address_id or o.picking_type_id.warehouse_id.partner_id or company.partner_id"/>
+                                    <tr style="background-color: #ffffff !important;">
+                                        <td style="width: 35%; padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><strong>Địa điểm:</strong></td>
+                                        <td style="width: 65%; padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;">
+                                            <strong t-field="delivery_addr.name"/>
+                                        </td>
+                                    </tr>
+                                    <tr style="background-color: #ffffff !important;">
+                                        <td style="padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><strong>Địa chỉ:</strong></td>
+                                        <td style="padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;">
+                                            <span t-if="delivery_addr.street" t-field="delivery_addr.street"/> 
+                                            <span t-if="delivery_addr.street2" t-field="delivery_addr.street2"/> 
+                                            <span t-if="delivery_addr.city" t-field="delivery_addr.city"/> 
+                                            <span t-if="delivery_addr.country_id"> <span t-field="delivery_addr.country_id.name"/></span>
+                                        </td>
+                                    </tr>
+                                    <tr style="background-color: #ffffff !important;">
+                                        <td style="padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><strong>Số ĐT:</strong></td>
+                                        <td style="padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;">
+                                            <span t-field="delivery_addr.phone"/>
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -109,7 +143,7 @@
                                     </tr>
                                     <tr style="background-color: #ffffff !important;">
                                         <td style="padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><strong>Mã định danh:</strong></td>
-                                        <td style="padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><span t-field="o.partner_ref"/></td>
+                                        <td style="width: 60%; padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><span t-field="o.partner_ref"/></td>
                                     </tr>
                                     <tr style="background-color: #ffffff !important;">
                                         <td style="padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><strong>Incoterm:</strong></td>
