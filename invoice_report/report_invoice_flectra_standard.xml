@@ -159,8 +159,7 @@
                                         <span t-field="l.discount"/>
                                     </td>
                                     <td class="text-center" style="vertical-align: middle;">
-                                        <!-- CRITICAL WORKING FIX: Using safe, primitive dynamic template iteration loop syntax -->
-                                        <!-- This avoids engine sandboxing blocks against mapping string functions and maps -->
+                                        <!-- CLEAN NATIVE REPLACEMENT TO AVOID THE TYPEERROR OVER LAMBDA/MAP CALLS -->
                                         <t t-foreach="l.tax_ids" t-as="tax">
                                             <span t-field="tax.description" t-if="tax.description"/>
                                             <span t-field="tax.name" t-if="not tax.description"/>
@@ -175,6 +174,7 @@
                             </t>
                         </tbody>
                     </table>
+
                     <!-- Totals and Financial Breakdown Section -->
                     <div class="row justify-content-end mt24" name="total">
                         <div class="col-6" style="padding-right: 70px;">
