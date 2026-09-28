@@ -128,52 +128,43 @@
                             </table>
                         </div>
                     </div>
-                    <!-- Is there a discount on at least one line? -->
-                    <t t-set="display_discount" t-value="any([l.discount for l in o.invoice_line_ids])"/>
-
-                    <!-- Main Lines Items Table Grid -->
-                    <p style="font-weight: bold; margin-bottom: 6px; font-size: 12px; color: #555;">Chi Tiết Thanh Toán</p>
-                    <table class="table table-sm table-bordered" style="table-layout: fixed; width: 100%; border: 1px solid #dee2e6 !important;">
-                        <thead>                           
-                            <tr style="background-color: #f8f9fa !important; color: #333333 !important; font-size: 11px;">
-                                <th style="width: 6%; text-align: center; vertical-align: middle; background-color: #f8f9fa !important; color: #333333 !important;">STT</th>
-                                <th style="width: 54%; text-align: center; vertical-align: middle; background-color: #f8f9fa !important; color: #333333 !important;">MÔ TẢ SẢN PHẨM / DỊCH VỤ</th>
-                                <th style="width: 8%; text-align: center; vertical-align: middle; background-color: #f8f9fa !important; color: #333333 !important;">SL</th>
-                                <th style="width: 11%; text-align: center; vertical-align: middle; background-color: #f8f9fa !important; color: #333333 !important;">ĐƠN GIÁ</th>
-                                <th t-if="display_discount" style="width: 8%; text-align: center; vertical-align: middle; background-color: #f8f9fa !important; color: #333333 !important;" groups="sale.group_discount_per_so_line">CK (%)</th>
-                                <th style="width: 10%; text-align: center; vertical-align: middle; background-color: #f8f9fa !important; color: #333333 !important;">THUẾ</th>
-                                <th style="width: 11%; text-align: center; vertical-align: middle; background-color: #f8f9fa !important; color: #333333 !important;">THÀNH TIỀN</th>
-                            </tr>
-                        </thead>
-                        <tbody class="invoice_tbody" style="font-size: 12px; background-color: #ffffff !important;">
-                            <t t-set="line_idx" t-value="1"/>
-                            <t t-foreach="o.invoice_line_ids" t-as="l">
-                                <tr t-if="not l.display_type" style="background-color: #ffffff !important;">
-                                    <td class="text-center" style="vertical-align: middle;"><t t-esc="line_idx"/></td>
-                                    <td style="vertical-align: middle;"><span t-field="l.name"/></td>
-                                    <td class="text-center" style="vertical-align: middle;">
-                                        <span t-field="l.quantity"/> <span t-field="l.uom_id" groups="product.group_uom"/>
-                                    </td>
-                                    <td class="text-right" style="vertical-align: middle;"><span t-field="l.price_unit"/></td>
-                                    <td t-if="display_discount" class="text-right" style="vertical-align: middle;" groups="sale.group_discount_per_so_line">
-                                        <span t-field="l.discount"/>
-                                    </td>
-                                    <td class="text-center" style="vertical-align: middle;">
-                                        <!-- CLEAN NATIVE REPLACEMENT TO AVOID THE TYPEERROR OVER LAMBDA/MAP CALLS -->
-                                        <t t-foreach="l.tax_ids" t-as="tax">
-                                            <span t-field="tax.description" t-if="tax.description"/>
-                                            <span t-field="tax.name" t-if="not tax.description"/>
-                                            <span t-if="not tax_last">, </span>
-                                        </t>
-                                    </td>
-                                    <td class="text-right" style="vertical-align: middle;">
-                                        <span t-field="l.price_subtotal" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
-                                    </td>
-                                    <t t-set="line_idx" t-value="line_idx + 1"/>
-                                </tr>
-                            </t>
-                        </tbody>
-                    </table>
+ <!--  Is there a discount on at least one line?  -->
+<t t-set="display_discount" t-value="any([l.discount for l in o.invoice_line_ids])"/>
+<table class="table table-sm table-borderless">
+<thead>
+<tr t-attf-style="background-color:#{company.color_account}; !important;color:#{company.text_color_account}; !important;">
+<th>Description</th>
+<th>Quantity </th>
+<th>Unit Price</th>
+<th t-if="display_discount" class="text-right" groups="sale.group_discount_per_so_line">Disc.(%)</th>
+<th>Taxes</th>
+<th>Price</th>
+</tr>
+</thead>
+<tbody class="invoice_tbody">
+<tr t-foreach="o.invoice_line_ids" t-as="l">
+<td>
+<span t-field="l.name"/>
+</td>
+<td class="text-center">
+<span t-field="l.quantity"/>
+<span t-field="l.uom_id" groups="product.group_uom"/>
+</td>
+<td class="text-center">
+<span t-field="l.price_unit"/>
+</td>
+<td t-if="display_discount" class="text-center" groups="sale.group_discount_per_so_line">
+<span t-field="l.discount"/>
+</td>
+<td class="text-center">
+<span t-esc="', '.join(map(lambda x: (x.description or x.name), l.tax_ids))"/>
+</td>
+<td class="text-center">
+<span t-field="l.price_subtotal"/>
+</td>
+</tr>
+</tbody>
+</table>
 
                     <!-- Totals and Financial Breakdown Section -->
                     <div class="row justify-content-end mt24" name="total">
