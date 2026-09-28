@@ -94,27 +94,53 @@
                                 </tbody>
                             </table>
                         </div>
-                        <div class="col-6" style="padding-left: 5px;">
-                            <table class="table table-sm table-bordered" style="table-layout: fixed; width: 100%; border: 1px solid #dee2e6 !important;">
-                                <thead style="background-color: #f8f9fa !important;">
-                                    <tr style="background-color: #f8f9fa !important;"><th colspan="2" style="font-size: 12px; padding: 4px 8px; background-color: #f8f9fa !important; color: #333333 !important; text-align: center;">TRẠNG THÁI &amp; NGUỒN</th></tr>
-                                </thead>
-                                <tbody style="background-color: #ffffff !important; color: #333333 !important;">
-                                    <tr style="background-color: #ffffff !important;">
-                                        <td style="width: 40%; padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><strong>Tài liệu gốc:</strong></td>
-                                        <td style="width: 60%; padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><span t-field="o.origin"/></td>
-                                    </tr>
-                                    <tr style="background-color: #ffffff !important;">
-                                        <td style="padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><strong>Kiểu giao nhận:</strong></td>
-                                        <td style="padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><span t-field="o.picking_type_id.name"/></td>
-                                    </tr>
-                                    <tr style="background-color: #ffffff !important;">
-                                        <td style="padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><strong>Trạng thái:</strong></td>
-                                        <td style="padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><span t-field="o.state"/></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+<div class="col-6" style="padding-left: 5px;">
+    <table class="table table-sm table-bordered" style="table-layout: fixed; width: 100%; border: 1px solid #dee2e6 !important;">
+        <thead style="background-color: #f8f9fa !important;">
+            <tr style="background-color: #f8f9fa !important;">
+                <th colspan="2" style="font-size: 12px; padding: 4px 8px; background-color: #f8f9fa !important; color: #333333 !important; text-align: center;">TRẠNG THÁI &amp; NGUỒN</th>
+            </tr>
+        </thead>
+        <tbody style="background-color: #ffffff !important; color: #333333 !important;">
+            <tr style="background-color: #ffffff !important;">
+                <td style="width: 40%; padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><strong>Tài liệu gốc:</strong></td>
+                <td style="width: 60%; padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><span t-field="o.origin"/></td>
+            </tr>
+            
+            <!-- Safe extraction of Sale Order for accounting references -->
+            <t t-set="sale_order" t-value="o.sale_id if 'sale_id' in o and o.sale_id else False"/>
+            
+            <!-- 1. INVOICE STATUS -->
+            <tr style="background-color: #ffffff !important;">
+                <td style="padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><strong>Xuất Hóa đơn:</strong></td>
+                <td style="padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;">
+                    <t t-if="sale_order and 'invoice_status' in sale_order">
+                        <span t-field="sale_order.invoice_status"/>
+                    </t>
+                    <t t-else="">
+                        <span class="text-muted">Không có thông tin</span>
+                    </t>
+                </td>
+            </tr>
+
+            <!-- 2. PAYMENT STATUS -->
+            <tr style="background-color: #ffffff !important;">
+                <td style="padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><strong>Thanh toán:</strong></td>
+                <td style="padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;">
+                    <t t-if="sale_order and sale_order.invoice_ids">
+                        <!-- Pulls the status from the latest generated invoice -->
+                        <t t-set="latest_invoice" t-value="sale_order.invoice_ids sorted lambda inv: inv.id, reverse=True [0]"/>
+                        <span t-field="latest_invoice.payment_state"/>
+                    </t>
+                    <t t-else="">
+                        <span class="text-muted">Chưa tạo hóa đơn</span>
+                    </t>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
                     </div>
 
                     <div class="row mb32">
@@ -226,7 +252,7 @@
                     </div>
 
                     <div class="row justify-content-end mt24">
-                        <div class="col-12">
+                        <div class="col-6" style="padding-left: 5px;">
                             <table class="table table-sm table-bordered" style="table-layout: fixed; width: 100%; border: 0px solid #ffffff !important;">   
                                 <tr style="background-color: #ffffff !important; border: 0 !important;"> 
                                     <t t-set="sale_doc" t-value="o.sale_id if 'sale_id' in o and o.sale_id else False"/>
@@ -247,7 +273,7 @@
                                 </tr>  
                             </table>
                         </div>  
-                        <div class="col-12">
+                        <div class="col-6" style="padding-left: 5px;">
                             <table class="table table-sm table-bordered" style="table-layout: fixed; width: 100%; border: 0px solid #ffffff !important;">   
                                 <tr style="background-color: #ffffff !important; border: 0 !important;">
                                     <td style="padding: 4px 8px; text-align: center; background-color: #ffffff !important; border: 0 !important; width: 33%;">
