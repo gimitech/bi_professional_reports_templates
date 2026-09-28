@@ -150,7 +150,7 @@
                             <t t-foreach="o.invoice_line_ids" t-as="l">
                                 <tr style="background-color: #ffffff !important;">
                                     <td class="text-center" style="vertical-align: middle;"><t t-esc="line_idx"/></td>
-                                    <td style="vertical-align: middle;"><span t-field="l.name"/></td>
+                                    <td style="vertical-align: middle;"><span t-field="l.product_id"/></td>
                                     <td class="text-center" style="vertical-align: middle;">
                                         <span t-field="l.quantity"/> <span t-field="l.uom_id" groups="product.group_uom"/>
                                     </td>
@@ -159,11 +159,7 @@
                                         <span t-field="l.discount"/>
                                     </td>
                                     <td class="text-center" style="vertical-align: middle;">
-                                        <t t-foreach="l.tax_ids" t-as="tax">
-                                            <span t-field="tax.description" t-if="tax.description"/>
-                                            <span t-field="tax.name" t-if="not tax.description"/>
-                                            <span t-if="not tax_last">, </span>
-                                        </t>
+                                        <span t-field="l.tax_ids"/>
                                     </td>
                                     <td class="text-right" style="vertical-align: middle;">
                                         <span t-field="l.price_subtotal" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
@@ -242,15 +238,15 @@
                                 <tr style="background-color: #ffffff !important; border: 0 !important;">
                                     <td style="padding: 4px 8px; text-align: center; background-color: #ffffff !important; border: 0 !important; width: 33%; color: #888;">
                                         <strong>Người Nộp Hàng / Chi</strong><br/>
-                                        <small style="color: #888;">(Ký, ghi rõ họ tên)</small>
+                                        <small style="color: #888;">(Ký, ghi rõ họ tên)</small><br/><br/>
                                     </td>
                                     <td style="padding: 4px 8px; text-align: center; background-color: #ffffff !important; border: 0 !important; width: 33%; color: #888;">
                                         <strong>Thủ Quỹ / Người Thu</strong><br/>
-                                        <small style="color: #888;">(Ký, ghi rõ họ tên)</small>
+                                        <small style="color: #888;">(Ký, ghi rõ họ tên)</small><br/><br/>
                                     </td>
                                     <td style="padding: 4px 8px; text-align: center; background-color: #ffffff !important; border: 0 !important; width: 34%; color: #888;">
                                         <strong>Kế Toán Trưởng</strong><br/>
-                                        <small style="color: #888;">(Ký, ghi rõ họ tên)</small>
+                                        <small style="color: #888;">(Ký, ghi rõ họ tên)</small><br/><br/>
                                     </td>
                                 </tr>  
                             </table>
