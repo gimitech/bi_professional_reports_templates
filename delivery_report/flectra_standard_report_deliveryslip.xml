@@ -228,30 +228,38 @@
                     <div class="row justify-content-end mt24">
                         <div class="col-12">
                             <table class="table table-sm table-bordered" style="table-layout: fixed; width: 100%; border: 0px solid #ffffff !important;">   
+                                <tr style="background-color: #ffffff !important; border: 0 !important;"> 
+                                    <t t-set="sale_doc" t-value="o.sale_id if 'sale_id' in o and o.sale_id else False"/>
+                                    <td style="padding: 4px 8px; text-align: center; background-color: #ffffff !important; border: 0 !important;">
+                                    <!-- If linked to a Sale Order, use its portal link with its access token -->
+                                    <t t-if="sale_doc and 'access_token' in sale_doc and sale_doc.access_token">
+                                    <t t-set="share_url" t-value="'%s/my/orders/%s?access_token=%s' % (sale_doc.get_base_url(), sale_doc.id, sale_doc.access_token)"/>
+                                    <img t-att-src="'/report/barcode/QR/%s' % (share_url)" style="width:90px; height:90px; display: block; margin: 0 auto;" alt="System Portal QR"/>
+                                    </t>
+                                    <!-- Fallback if no Sale Order link exists (e.g., manual stock transfer) -->
+                                    <t t-else="">
+                                    <img t-att-src="'/report/barcode/QR/%s' % (o.name)" style="width:90px; height:90px; display: block; margin: 0 auto;" alt="System Portal QR"/>
+                                    </t>
+                                    </td>                                    
+                                    <td style="padding: 4px 8px; text-align: center; background-color: #ffffff !important; border: 0 !important; width: 33%;">                                        
+                                        <img src="https://gimitec.com/mag/image/0938141821.png" style="width:90px; height:90px; display: inline-block; margin-top: 5px;"/>
+                                    </td>
+                                </tr>  
+                            </table>
+                        </div>  
+                        <div class="col-12">
+                            <table class="table table-sm table-bordered" style="table-layout: fixed; width: 100%; border: 0px solid #ffffff !important;">   
                                 <tr style="background-color: #ffffff !important; border: 0 !important;">
                                     <td style="padding: 4px 8px; text-align: center; background-color: #ffffff !important; border: 0 !important; width: 33%;">
                                         <strong>Người Nhận Hàng</strong><br/>
                                         <small style="color: #888;">(Ký, ghi rõ họ tên)</small>
                                     </td>
-                                    <td style="padding: 4px 8px; text-align: center; background-color: #ffffff !important; border: 0 !important; width: 33%;">
-                                        <!-- Safely extract Sale Order information if it exists to generate the QR portal link -->
-<t t-set="sale_doc" t-value="o.sale_id if 'sale_id' in o and o.sale_id else False"/>
-
-<td style="padding: 4px 8px; text-align: center; background-color: #ffffff !important; border: 0 !important; width: 33%;">
-    <!-- If linked to a Sale Order, use its portal link with its access token -->
-    <t t-if="sale_doc and 'access_token' in sale_doc and sale_doc.access_token">
-        <t t-set="share_url" t-value="'%s/my/orders/%s?access_token=%s' % (sale_doc.get_base_url(), sale_doc.id, sale_doc.access_token)"/>
-        <img t-att-src="'/report/barcode/QR/%s' % (share_url)" style="width:90px; height:90px; display: block; margin: 0 auto;" alt="System Portal QR"/>
-    </t>
-    <!-- Fallback if no Sale Order link exists (e.g., manual stock transfer) -->
-    <t t-else="">
-        <img t-att-src="'/report/barcode/QR/%s' % (o.name)" style="width:90px; height:90px; display: block; margin: 0 auto;" alt="System Portal QR"/>
-    </t>
-</td>
+                                    <td style="padding: 4px 8px; text-align: center; background-color: #ffffff !important; border: 0 !important; width: 33%;"> 
                                     </td>
                                     <td style="padding: 4px 8px; text-align: center; background-color: #ffffff !important; border: 0 !important; width: 33%;">
-                                        <strong>Người Giao Hàng / Đại Diện</strong><br/>
-                                        <img src="https://gimitec.com/mag/image/0938141821.png" style="width:90px; height:90px; display: inline-block; margin-top: 5px;"/><br/>
+                                        <strong>Người Giao Hàng / Đại Diện</strong><br/>                                        
+                                    </td>
+                                    <td style="padding: 4px 8px; text-align: center; background-color: #ffffff !important; border: 0 !important; width: 33%;"> 
                                     </td>
                                 </tr>  
                             </table>
