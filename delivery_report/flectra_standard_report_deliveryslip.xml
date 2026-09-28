@@ -129,9 +129,11 @@
                 <td style="padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;">
                     <t t-if="sale_order and sale_order.invoice_ids">
                         <!-- Pulls the status from the latest generated invoice -->
-                        <t t-set="latest_invoice" t-value="sale_order.invoice_ids sorted lambda inv: inv.id, reverse=True [0]"/>
-                        <span t-field="latest_invoice.payment_state"/>
-                    </t>
+                        <!--  CORRECTED COMPILER SAFE CODE -->
+<t t-set="latest_invoice" t-value="sale_order.invoice_ids.sorted(key=lambda i: i.id, reverse=True)[0] if sale_order.invoice_ids else False"/>
+<t t-if="latest_invoice">
+    <span t-field="latest_invoice.payment_state"/>
+</t>
                     <t t-else="">
                         <span class="text-muted">Chưa tạo hóa đơn</span>
                     </t>
