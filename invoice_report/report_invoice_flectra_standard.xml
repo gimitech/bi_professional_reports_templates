@@ -1,213 +1,270 @@
 <?xml version="1.0" encoding="utf-8"?>
 <flectra>
     <data>
-        <template id="flectra_std_report_invoice_document">
+        <template id="flectra_std_report_phieuthu_document">
+            <!-- Setup Company Context Safely -->
             <t t-if="o and 'company_id' in o">
-                <t t-set="company" t-value="o.company_id"></t>
+                <t t-set="company" t-value="o.company_id"/>
             </t>
-            <t t-if="not o or not 'company_id' in o">
-                <t t-set="company" t-value="res_company"></t>
+            <t t-if="not o or 'company_id' not in o">
+                <t t-set="company" t-value="res_company"/>
             </t>
-            <div class="header">
-                <div class="row mt32 mb32">
-                    <div class="col-6">
-                        <img t-if="company.logo" t-att-src="image_data_uri(company.logo)"
-                             style="max-height: 80px;"/>
-                    </div>
-                    <div class="col-6 text-right"
-                         style="font:16px lucida-console,sans-serif !important; text-align: right;">
-                        <span t-field="company.partner_id"/>
-                        <br/>
-                        <span t-if="company.partner_id.street">
-                            <span t-if="company.partner_id.street" t-field="company.partner_id.street"/>
-                        </span>
-                        <br/>
-                        <span t-if="company.partner_id.street2">
-                            <span t-field="company.partner_id.street2"/>
-                            <br/>
-                        </span>
 
+            <!-- Document Header Section -->
+            <div class="header" style="margin-bottom: 0px; padding-bottom: 0px;">
+                <div class="row mt32 mb16">
+                    <div class="col-6">
+                        <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="max-height: 80px;"/>
+                    </div>
+                    <div class="col-6 text-left" style="font:14px sans-serif !important; text-align: center;">
+                        <strong t-field="company.partner_id"/><br/>
+                        <span t-if="company.partner_id.street" t-field="company.partner_id.street"/><br/>
+                        <span t-if="company.partner_id.street2" t-field="company.partner_id.street2"/><br/>
                         <span t-if="company.partner_id.city" t-field="company.partner_id.city"/>
-                        <br/>
-                        <span t-if="company.partner_id.country_id" t-field="company.partner_id.country_id"/>
-                        <br/>
-                        <span t-if="company.partner_id.vat" t-field="company.partner_id.vat"/>
-                        <br/>
+                        <span t-if="company.partner_id.country_id"> <span t-field="company.partner_id.country_id.name"/></span><br/>
+                        <span t-if="company.partner_id.vat">MST: <span t-field="company.partner_id.vat"/></span>
                     </div>
                 </div>
+                <div style="border-top: 1px solid #777777; margin-top: 5px; margin-bottom: 1px; padding: 0;"/>
             </div>
+
+            <!-- Main Layout Context -->
             <t t-call="web.external_layout">
                 <t t-set="o" t-value="o.with_context({'lang':o.partner_id.lang})"/>
-                <div class="page">
-                    <div class="row" style="padding-top:20px;">
-                        <div class="col-3" style="font:15px lucida-console,sans-serif !important;">
-                            <strong>
-                                <span
-                                      t-field="o.partner_id"/>
-                            </strong>
-                            <br/>
-                            <span  t-field="o.partner_id.street"/>
-                            <br/>
-                            <t t-if="o.partner_id.street2">
-                                <span  t-field="o.partner_id.street2"/>
-                                <br/>
-                            </t>
-                            <span  t-field="o.partner_id.city"/>
-                            <br/>
-                            <span  t-field="o.partner_id.state_id"/>
-                            <br/>
-                            <span  t-field="o.partner_id.country_id"/>
-                            <br/>
-                            <span  t-field="o.partner_id.vat"/>
-                            <br/>
+                <div class="page" style="font-family: sans-serif; font-size: 13px; margin-top: -55px !important;">
+                    <div class="oe_structure"/>
+                    
+                    <!-- Document Title and Customer Block -->
+                    <div class="row mb32" style="margin-top: 0px; padding-top: 1px;">
+                        <div class="col-6 text-center" style="text-align: center; font-size: 13px; padding-top: 15px;">
+                            <h1 style="font-weight: bold; margin-top: 2px; margin-bottom: 2px; font-size: 24px; color: #333333;">PHIẾU THU</h1>
+                            <p style="font-size: 14px; color: #555;">Ref# <span t-field="o.name"/></p>
+                            <img t-att-src="'/report/barcode/?barcode_type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128', o.name, 600, 100)" style="width: 300px; height: 25px;"/>
                         </div>
-                        <div class="col-3"/>
 
+                        <!-- Customer information Section Panels -->                       
+                        <div class="col-6" style="padding-right: 5px;">
+                            <table class="table table-sm table-bordered" style="table-layout: fixed; width: 100%; border: 1px solid #dee2e6 !important;">
+                                <thead>
+                                   <tr style="background-color: #f8f9fa !important;"><th colspan="2" style="font-size: 12px; padding: 4px 8px; background-color: #f8f9fa !important; color: #333333 !important; text-align: center; border: 0 !important; border-bottom: 0 !important;"><br/></th></tr>                                                             
+                                </thead>
+                                <tbody style="background-color: #ffffff !important; color: #333333 !important;">
+                                    <tr style="background-color: #ffffff !important;">
+                                        <td style="width: 40%; padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><strong>Khách hàng</strong></td>
+                                        <td style="width: 60%; padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><span t-field="o.partner_id.name"/></td>
+                                    </tr>
+                                    <tr style="background-color: #ffffff !important;">
+                                        <td style="padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><strong>Địa chỉ:</strong></td>
+                                        <td style="padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;">
+                                            <span t-if="o.partner_id.street" t-field="o.partner_id.street"/> 
+                                            <span t-if="o.partner_id.street2" t-field="o.partner_id.street2"/> 
+                                            <span t-if="o.partner_id.city" t-field="o.partner_id.city"/> 
+                                            <span t-if="o.partner_id.country_id"> <span t-field="o.partner_id.country_id.name"/></span><br/>
+                                        </td>
+                                    </tr>
+                                    <tr style="background-color: #ffffff !important;">
+                                        <td style="padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><strong>Số ĐT:</strong></td>
+                                        <td style="padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><span t-field="o.partner_id.phone"/></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>                      
+                    </div>
 
-                        <div class="col-6" t-attf-style="font:15px lucida-console,sans-serif !important;  background-color:#{company.color_account}; !important; text-aling:center;" >
-                            <h2>
-                                <span t-if="o.move_type == 'out_invoice' and (o.state == 'draft' or o.state == 'posted')">
-                                    <font t-attf-style="color:#{company.text_color_account}; !important;">Invoice</font>
-                                </span>
-                                <span t-if="o.move_type == 'out_invoice' and o.state == 'proforma2'">
-                                    <font t-attf-style="color:#{company.text_color_account}; !important;">PRO-FORMA</font>
-                                </span>
-                                <span t-if="o.move_type == 'out_invoice' and o.state == 'draft'">
-                                    <font t-attf-style="color:#{company.text_color_account}; !important;">Draft Invoice</font>
-                                </span>
-                                <span t-if="o.move_type == 'out_invoice' and o.state == 'cancel'">
-                                    <font t-attf-style="color:#{company.text_color_account}; !important;">Cancelled Invoice</font>
-                                </span>
-                                <span t-if="o.move_type == 'out_refund'">
-                                    <font t-attf-style="color:#{company.text_color_account}; !important;">Refund</font>
-                                </span>
-                                <span t-if="o.move_type == 'in_refund'">
-                                    <font t-attf-style="color:#{company.text_color_account}; !important;">Vendor Refund</font>
-                                </span>
-                                <span t-if="o.move_type == 'in_invoice'">
-                                    <font t-attf-style="color:#{company.text_color_account}; !important;">Vendor Bill</font>
-                                </span>
-                                <font t-attf-style="color:#{company.text_color_account}; !important;">
-                                    <span t-field="o.name"/>
-                                </font>
-                            </h2>
-                            <div t-if="o.invoice_date">
-                                <font t-attf-style="color:#{company.text_color_account}; !important;">
-                                    <strong>Invoice Date:</strong>
-                                    <p t-field="o.invoice_date"/>
-                                </font>
-                            </div>
-                            <div t-if="o.name">
-                                <font t-attf-style="color:#{company.text_color_account}; !important;">
-                                    <strong>Invoice Date:</strong>
-                                    <p t-field="o.name"/>
-                                </font>
-                            </div>
+                    <!-- Information & Status Meta Blocks -->
+                    <div class="row mb16">
+                        <div class="col-6" style="padding-right: 5px;">
+                            <table class="table table-sm table-bordered" style="table-layout: fixed; width: 100%; border: 1px solid #dee2e6 !important;">
+                                <thead style="background-color: #f8f9fa !important;">
+                                    <tr style="background-color: #f8f9fa !important;"><th colspan="2" style="font-size: 12px; padding: 4px 8px; background-color: #f8f9fa !important; color: #333333 !important; text-align: center;">THÔNG TIN HÓA ĐƠN</th></tr>
+                                </thead>
+                                <tbody style="background-color: #ffffff !important; color: #333333 !important;">
+                                    <tr style="background-color: #ffffff !important;">
+                                        <td style="width: 40%; padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><strong>Số Hóa Đơn:</strong></td>
+                                        <td style="width: 60%; padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><span t-field="o.name"/></td>
+                                    </tr>
+                                    <tr style="background-color: #ffffff !important;">
+                                        <td style="padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><strong>Ngày Hóa Đơn:</strong></td>
+                                        <td style="padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><span t-field="o.invoice_date" t-options='{"widget": "date"}'/></td>
+                                    </tr>
+                                    <tr style="background-color: #ffffff !important;">
+                                        <td style="padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><strong>Hạn Thanh Toán:</strong></td>
+                                        <td style="padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><span t-field="o.invoice_date_due"/></td>
+                                    </tr>
+                                    <tr style="background-color: #ffffff !important;">
+                                        <td style="padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><strong>Ngày in phiếu:</strong></td>
+                                        <td style="padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;">
+                                            <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%d/%m/%Y %H:%M:%S')"/>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-6" style="padding-left: 5px;">
+                            <table class="table table-sm table-bordered" style="table-layout: fixed; width: 100%; border: 1px solid #dee2e6 !important;">
+                                <thead style="background-color: #f8f9fa !important;">
+                                    <tr style="background-color: #f8f9fa !important;">
+                                        <th colspan="2" style="font-size: 12px; padding: 4px 8px; background-color: #f8f9fa !important; color: #333333 !important; text-align: center;">TRẠNG THÁI &amp; NGUỒN</th>
+                                    </tr>
+                                </thead>
+                                <tbody style="background-color: #ffffff !important; color: #333333 !important;">
+                                    <tr style="background-color: #ffffff !important;">
+                                        <td style="width: 40%; padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><strong>Tài liệu gốc:</strong></td>
+                                        <td style="width: 60%; padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><span t-field="o.invoice_origin"/></td>
+                                    </tr>
+                                    <tr style="background-color: #ffffff !important;">
+                                        <td style="padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><strong>Thanh toán:</strong></td>
+                                        <td style="padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><span t-field="o.payment_term_id"/></td>
+                                    </tr>
+                                    <tr style="background-color: #ffffff !important;">
+                                        <td style="padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><strong>Trạng thái thanh toán:</strong></td>
+                                        <td style="padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><span t-field="o.payment_state"/></td>
+                                    </tr>
+                                    <tr style="background-color: #ffffff !important;">
+                                        <td style="padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><strong>Mã Đối Chiếu:</strong></td>
+                                        <td style="padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><span t-field="o.ref"/></td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
-                     <br/>
-                    <div style="padding-top:20px;"></div>
-                    <!-- Is there a discount on at least one line? -->
-                        <t t-set="display_discount" t-value="any([l.discount for l in o.invoice_line_ids])"/>
 
-                        <table class="table table-sm table-borderless">
-                            <thead>
-                                <tr t-attf-style="background-color:#{company.color_account}; !important;color:#{company.text_color_account}; !important;">
-                                    <th >Description</th>
-                                    <th >Quantity </th>
-                                    <th >Unit Price</th>
-                                    <th t-if="display_discount" class="text-right" groups="sale.group_discount_per_so_line">Disc.(%)</th>
-                                    <th >Taxes</th>
-                                    <th >Price</th>
-                                </tr>
-                            </thead>
-                            <tbody class="invoice_tbody">
-                                <tr t-foreach="o.invoice_line_ids" t-as="l">
-                                    <td><span t-field="l.name"/></td>
-                                    <td class="text-center">
-                                        <span t-field="l.quantity"/>
-                                        <span t-field="l.uom_id"  groups="product.group_uom"/>
+                    <!-- Main Lines Items Table Grid -->
+                    <t t-set="display_discount" t-value="any([l.discount for l in o.invoice_line_ids])"/>
+                    <p style="font-weight: bold; margin-bottom: 6px; font-size: 12px; color: #555;">Chi Tiết Thanh Toán</p>
+                    <table class="table table-sm table-bordered" style="table-layout: fixed; width: 100%; border: 1px solid #dee2e6 !important;">
+                        <thead>                           
+                            <tr style="background-color: #f8f9fa !important; color: #333333 !important; font-size: 11px;">
+                                <th style="width: 6%; text-align: center; vertical-align: middle; background-color: #f8f9fa !important; color: #333333 !important;">STT</th>
+                                <th style="width: 49%; text-align: center; vertical-align: middle; background-color: #f8f9fa !important; color: #333333 !important;">MÔ TẢ SẢN PHẨM / DỊCH VỤ</th>
+                                <th style="width: 10%; text-align: center; vertical-align: middle; background-color: #f8f9fa !important; color: #333333 !important;">SL</th>
+                                <th style="width: 12%; text-align: center; vertical-align: middle; background-color: #f8f9fa !important; color: #333333 !important;">ĐƠN GIÁ</th>
+                                <th t-if="display_discount" style="width: 8%; text-align: center; vertical-align: middle; background-color: #f8f9fa !important; color: #333333 !important;" groups="product.group_discount_per_so_line">CK (%)</th>
+                                <th style="width: 11%; text-align: center; vertical-align: middle; background-color: #f8f9fa !important; color: #333333 !important;">THUẾ</th>
+                                <th style="width: 12%; text-align: center; vertical-align: middle; background-color: #f8f9fa !important; color: #333333 !important;">THÀNH TIỀN</th>
+                            </tr>
+                        </thead>
+                        <tbody class="invoice_tbody" style="font-size: 12px; background-color: #ffffff !important;">
+                            <t t-set="line_idx" t-value="1"/>
+                            <t t-foreach="o.invoice_line_ids" t-as="l">
+                                <tr t-if="not l.display_type" style="background-color: #ffffff !important;">
+                                    <td class="text-center" style="vertical-align: middle;"><t t-esc="line_idx"/></td>
+                                    <td style="vertical-align: middle;"><span t-field="l.name"/></td>
+                                    <td class="text-center" style="vertical-align: middle;">
+                                        <span t-field="l.quantity"/> <span t-field="l.uom_id" groups="product.group_uom"/>
                                     </td>
-                                    <td class="text-center">
-                                        <span t-field="l.price_unit"/>
-                                    </td>
-                                    <td t-if="display_discount" class="text-center" groups="sale.group_discount_per_so_line">
+                                    <td class="text-right" style="vertical-align: middle;"><span t-field="l.price_unit"/></td>
+                                    <td t-if="display_discount" class="text-right" style="vertical-align: middle;" groups="product.group_discount_per_so_line">
                                         <span t-field="l.discount"/>
                                     </td>
-                                    <td class="text-center">
+                                    <td class="text-center" style="vertical-align: middle;">
                                         <span t-esc="', '.join(map(lambda x: (x.description or x.name), l.tax_ids))"/>
                                     </td>
-                                    <td class="text-center">
-                                         <span t-field="l.price_subtotal"/> 
+                                    <td class="text-right" style="vertical-align: middle;">
+                                        <span t-field="l.price_subtotal" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
                                     </td>
+                                    <t t-set="line_idx" t-value="line_idx + 1"/>
                                 </tr>
-                            </tbody>
-                        </table>
-                        <br/>
-                       <div name="total" class="float-end" style="position: absolute;left: 590px;">
-                        <div class="col-4 pull-right" style="width: 260px;">
-                                <table class="table table-condensed table-borderless">
-                                    <tr class="border-black">
-                                        <td><strong>Subtotal</strong></td>
-                                        <td class="text-right">
-                                            <span t-field="o.amount_untaxed"/>
-                                        </td>
-                                    </tr>
+                            </t>
+                        </tbody>
+                    </table>
 
-                                    <tr class="border-black">
-                                        <td><strong>Total</strong></td>
-                                        <td class="text-right">
-                                            <span t-field="o.amount_total"/>
+                    <!-- Totals and Financial Breakdown Section -->
+                    <div class="row justify-content-end mt24" name="total">
+                        <div class="col-6" style="padding-right: 70px;">
+                            <table class="table table-sm table-bordered" style="table-layout: fixed; width: 100%; border: 0px solid #ffffff !important;">   
+                                <tr style="background-color: #ffffff !important; border: 0 !important;">
+                                    <td style="padding: 4px 8px; min-height: 80px; background-color: #ffffff !important; color: #333333 !important; border: 0 !important;">
+                                        <div class="col-6 text-center" style="text-align: center; font-size: 13px; margin: 0 auto; display: block;">
+                                            <img t-att-src="'/report/barcode/QR/%s' % (o.name)" style="width:100px; height:100px; display: inline-block; vertical-align: middle; margin: 0 auto;" alt="QR Code"/>
+                                        </div>
+                                    </td>
+                                    <td style="padding: 4px 8px; min-height: 80px; background-color: #ffffff !important; color: #333333 !important; border: 0 !important;">
+                                        <div class="col-6 text-center" style="text-align: center; font-size: 13px; margin: 0 auto; display: block;">         
+                                            <img src="https://gimitec.com/mag/image/0938141821.png" style="width:100px; height:100px; display: inline-block; vertical-align: middle; margin: 0 auto;"/>
+                                        </div>
+                                    </td>
+                                </tr>  
+                            </table>
+                        </div>  
+                        <div class="col-5">
+                            <table class="table table-sm table-bordered" style="width: 100%; font-size: 13px; border: 1px solid #dee2e6 !important;">
+                                <tbody style="background-color: #ffffff !important;">
+                                    <tr style="background-color: #ffffff !important;">
+                                        <td style="padding: 6px 8px; background-color: #ffffff !important; color: #333333 !important;"><strong>Cộng tiền hàng</strong></td>
+                                        <td class="text-right" style="padding: 6px 8px; background-color: #ffffff !important; color: #333333 !important;">
+                                            <span t-field="o.amount_untaxed" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
                                         </td>
                                     </tr>
-                                    <tr class="border-black" t-attf-style="background-color:#{company.color_account}; !important; color:#{company.text_color_account}; !important;">
-                                        <td><strong>Amount Due</strong></td>
-                                        <td class="text-right">
-                                            <span t-field="o.amount_residual"/>
+                                    <tr style="background-color: #ffffff !important;">
+                                        <td style="padding: 6px 8px; background-color: #ffffff !important; color: #333333 !important;">Thuế GTGT</td>
+                                        <td class="text-right" style="padding: 6px 8px; background-color: #ffffff !important; color: #333333 !important;">
+                                            <span t-field="o.amount_tax" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
                                         </td>
                                     </tr>
-                                </table>
-                            </div>
+                                    <tr style="background-color: #ffffff !important;">
+                                        <td style="padding: 6px 8px; background-color: #ffffff !important; color: #333333 !important;"><strong>Tổng cộng tiền thanh toán</strong></td>
+                                        <td class="text-right" style="padding: 6px 8px; background-color: #ffffff !important; color: #333333 !important;">
+                                            <span t-field="o.amount_total" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                                        </td>
+                                    </tr>
+                                    <tr style="background-color: #f8f9fa !important; font-weight: bold;">
+                                        <td style="padding: 6px 8px; background-color: #f8f9fa !important; color: #000000 !important;"><strong>Còn lại phải thu (Due)</strong></td>
+                                        <td class="text-right" style="padding: 6px 8px; background-color: #f8f9fa !important; color: #000000 !important;">
+                                            <span t-field="o.amount_residual" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
-                        <br/><br/><br/><br/><br/>
-                        <div style="padding-top:50px;">
-                        </div>
-                        <div t-attf-style="background-color:#{company.color_account}; !important; color:#{company.text_color_account}; !important; font:15px lucida-console,sans-serif !important; ">
-                            <p t-if="o.narration">
-                                <strong><span>Comments:</span> </strong> <span t-field="o.narration" />
-                            </p>
-                        </div>
-                        <div class="oe_structure"/>
-                        <div>
-                        <div class="col-xs-6" t-attf-style="background-color:#{company.color_account}; !important; color:#{company.text_color_account}; !important; font:15px lucida-console,sans-serif !important; " t-if="o.paypal_chk">
-                            <strong >Paypal Account Details</strong><br/>
-                            <span>Paypal Id : </span><span t-field="o.paypal_id"/>
-                            </div><br/><br/><br/>
-                            <div t-if="o.company_id.bank_account_id.acc_number">
-                                <div class="col-xs-6"  t-attf-style="background-color:#{company.color_account}; !important; color:#{company.text_color_account}; !important; font:15px lucida-console,sans-serif !important; " t-if="o.paypal_chk == False">
-                                <strong >Bank Account Details</strong><br/>
-                                <span>Account Id : </span><span  t-field="o.company_id.bank_account_id.acc_number"/><br/>
-                                <span>Bank Name : </span><span  t-field="o.company_id.bank_account_id.bank_id.name"/><br/>
-                                <span>Branch Name/Address : </span><span  t-field="o.company_id.bank_account_id.branch_name"/><br/>
-                                <span t-field="o.company_id.bank_account_id.street"/><br/>
-                                <span  t-field="o.company_id.bank_account_id.street2"/><span>,</span>
-                                <span t-field="o.company_id.bank_account_id.city"/><span>,</span>
-                                <span  t-field="o.company_id.bank_account_id.zip"/><br/>
-                                <span  t-field="o.company_id.bank_account_id.state_id"/><span>,</span><span  t-field="o.company_id.bank_account_id.country_id"/><br/>
-                                <span t-if="o.company_id.bank_account_id.swift_code">Swift Code : </span><span  t-field="o.company_id.bank_account_id.swift_code"/><br/>
-                                <span t-if="o.company_id.bank_account_id.ifsc">IFSC Code : </span><span  t-field="o.company_id.bank_account_id.ifsc"/><br/>
-                                </div>
+                    </div>
+
+                    <!-- Bank Account Details Panel -->
+                    <div class="row mt24" t-if="o.company_id.bank_account_id.acc_number">
+                        <div class="col-12">
+                            <div style="border-radius: 4px; padding: 12px; background-color: #f8f9fa; font-size: 12px; border: 1px solid #dee2e6;">
+                                <strong>Thông tin tài khoản ngân hàng (Bank Account Details):</strong><br/>
+                                <span>Số tài khoản: </span><span t-field="o.company_id.bank_account_id.acc_number"/><br/>
+                                <span>Ngân hàng: </span><span t-field="o.company_id.bank_account_id.bank_id.name"/><br/>
+                                <span t-if="o.company_id.bank_account_id.branch_name">Chi nhánh: <span t-field="o.company_id.bank_account_id.branch_name"/></span>
                             </div>
                         </div>
                     </div>
-                    <p t-if="o.fiscal_position_id.note">
-                        <strong>Fiscal Position Remark:</strong>
-                        <span t-field="o.fiscal_position_id.note"/>
-                    </p>
 
+                    <!-- Signatures Section Panels -->
+                    <div class="row mt32">
+                        <div class="col-12">
+                            <table class="table table-sm table-bordered" style="table-layout: fixed; width: 100%; border: 0px solid #ffffff !important;">   
+                                <tr style="background-color: #ffffff !important; border: 0 !important;">
+                                    <td style="padding: 4px 8px; text-align: center; background-color: #ffffff !important; border: 0 !important; width: 33%; color: #888;">
+                                        <strong>Người Nộp Hàng / Chi</strong><br/>
+                                        <small style="color: #888;">(Ký, ghi rõ họ tên)</small>
+                                    </td>
+                                    <td style="padding: 4px 8px; text-align: center; background-color: #ffffff !important; border: 0 !important; width: 33%; color: #888;">
+                                        <strong>Thủ Quỹ / Người Thu</strong><br/>
+                                        <small style="color: #888;">(Ký, ghi rõ họ tên)</small>
+                                    </td>
+                                    <td style="padding: 4px 8px; text-align: center; background-color: #ffffff !important; border: 0 !important; width: 34%; color: #888;">
+                                        <strong>Kế Toán Trưởng</strong><br/>
+                                        <small style="color: #888;">(Ký, ghi rõ họ tên)</small>
+                                    </td>
+                                </tr>  
+                            </table>
+                        </div>  
+                    </div>
+
+                    <!-- Terms, Conditions, and Internal Notes -->
+                    <div class="mt32" style="border-radius: 4px; padding: 12px; background-color: #fdfdfd; font-size: 12px; border: 1px solid #eee;">
+                        <p style="margin-bottom: 0;">
+                            <strong>Ghi chú:</strong><br/>
+                            <span t-if="o.narration" t-field="o.narration"/>
+                            <span t-else="">Hóa đơn / Phiếu thu đã được xác nhận.</span>
+                        </p>
+                    </div>
+
+                    <div class="oe_structure"/>
+                </div>
             </t>
         </template>
-
-
     </data>
 </flectra>
