@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <flectra>
     <data>
-        <template id="flectra_std_report_phieuthu_document">
+        <template id="flectra_std_report_invoice_document">
             <!-- Setup Company Context Safely -->
             <t t-if="o and 'company_id' in o">
                 <t t-set="company" t-value="o.company_id"/>
