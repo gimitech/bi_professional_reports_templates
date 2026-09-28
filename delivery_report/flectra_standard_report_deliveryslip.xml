@@ -94,7 +94,7 @@
                                     <tr style="background-color: #ffffff !important;">
                                         <td style="padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;"><strong>Nhân viên kinh doanh:</strong></td>
                                         <td style="padding: 4px 8px; background-color: #ffffff !important; color: #333333 !important;">
-                                        <span t-if="sale_order and sale_order.user_id" t-field="sale_order.user_id.name"/>
+                                        <span t-if="sale_order and sale_order.user_id" t-field="sale_order.user_id"/>
                                         <span t-else="" class="text-muted">Không có thông tin</span>
                                         </td>
                                     </tr>
@@ -289,14 +289,14 @@
                                     <td style="padding: 4px 8px; text-align: center; background-color: #ffffff !important; border: 0 !important; width: 50%;">
                                         <t t-if="sale_doc and 'access_token' in sale_doc and sale_doc.access_token">
                                             <t t-set="share_url" t-value="'%s/my/orders/%s?access_token=%s' % (sale_doc.get_base_url(), sale_doc.id, sale_doc.access_token)"/>
-                                            <img t-att-src="'/report/barcode/QR/%s' % (share_url)" style="width:90px; height:90px; display: block; margin: 0 auto;" alt="System Portal QR"/>
+                                            <img t-att-src="'/report/barcode/QR/%s' % (share_url)" style="width:90px; height:90px; display: block; margin: 0 auto;" alt="f309 QR"/>
                                         </t>
                                         <t t-else="">
-                                            <img t-att-src="'/report/barcode/QR/%s' % (o.name)" style="width:90px; height:90px; display: block; margin: 0 auto;" alt="System Portal QR"/>
+                                            <img t-att-src="'/report/barcode/QR/%s' % (o.name)" style="width:90px; height:90px; display: block; margin: 0 auto;" alt="f309 QR"/>
                                         </t>
                                     </td>                                    
                                     <td style="padding: 4px 8px; text-align: center; background-color: #ffffff !important; border: 0 !important; width: 50%;">                                        
-                                        <img src="https://gimitec.com/mag/image/0938141821.png" style="width:90px; height:90px; display: inline-block; margin-top: 5px;"/>
+                                        <img src="https://gimitec.com/mag/image/0938141821.png" style="width:90px; height:90px; display: inline-block; margin: 0 auto;"/>
                                     </td>
                                 </tr>  
                             </table>
@@ -321,7 +321,7 @@
                         <p style="margin-bottom: 0;">
                             <strong>Ghi chú đơn hàng:</strong><br/>
                             <span t-if="o.note" t-field="o.note"/>
-                            <span t-else="">Hàng hóa giao đi đầy đủ phụ kiện kèm theo và nguyên đai kiện tiêu chuẩn nhà sản xuất.</span>
+                            <span t-else="">Hàng hoá đã được bàn giao đúng và đủ.</span><br/>-<br/>-
                         </p>
                     </div>
 
